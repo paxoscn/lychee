@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="/css/common.css">
+        <script type="text/javascript" src="/js/common.js"></script>
+        <script type="text/javascript" src="/js/modeling/dimension.js"></script>
+    </head>
+    <body>
+        <div>
+            <div></div>
+            <div id='menu'></div>
+            <div id='content'>
+                <div>
+                    <button onclick='saveDimension();'>保存</button>
+                    <button onclick='deleteDimension();'>删除</button>
+                </div>
+                <div>
+                    <input type='hidden' id='id' />
+                    <table>
+                        <tr>
+                            <th>维度名称*</th>
+                            <td><input id='name' /></td>
+                        </tr>
+                        <tr>
+                            <th>维度中文名称</th>
+                            <td><input id='cn_name' /></td>
+                        </tr>
+                        <tr>
+                            <th>维度类型</th>
+                            <td>
+                                <label><input id='type_table' type='radio' name='type' value='table' checked />维度表</label>
+                                <label><input id='type_enum' type='radio' name='type' value='enum' />枚举</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>维度表</th>
+                            <td>
+                                <input type='hidden' id='table_id' />
+                                <span id='table_name'></span>
+                                <button id='table_selecting_button' onclick='selectDimensionTable();'>选择维度表</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id='enum_values'>
+                    <button onclick='addEnumValue();'>增加枚举值</button>
+                    <table>
+                        <tr>
+                            <th>枚举值</th>
+                            <th>名称</th>
+                            <th>操作</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id='table_selector'>
+            <table>
+                <tr>
+                    <th>数据源</th>
+                    <th>表名</th>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>
