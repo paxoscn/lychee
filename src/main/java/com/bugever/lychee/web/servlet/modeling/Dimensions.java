@@ -1,7 +1,8 @@
-package com.bugever.lychee.web.servlet;
+package com.bugever.lychee.web.servlet.modeling;
 
 import com.bugever.lychee.database.Database;
 import com.bugever.lychee.domain.Dimension;
+import com.bugever.lychee.web.servlet.ServletHandler;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
