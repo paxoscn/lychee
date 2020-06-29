@@ -15,6 +15,7 @@ public class Dimensions extends HttpServlet {
     protected void doPost(HttpServletRequest request,
                          HttpServletResponse response) {
         ServletHandler.handle(request, response, (currentUser) -> Database.list(Dimension.class,
-                "select id, seller_id, name, cn_name, remarks, identity_id, data_type, creator_id, created_on from m_dimensions where deleted = 0 order by name"));
+                "select id, seller_id, name, cn_name, remarks, identity_id, data_type," +
+                        " creator_id, created_on from m_dimensions where deleted = 0 order by name"));
     }
 }
