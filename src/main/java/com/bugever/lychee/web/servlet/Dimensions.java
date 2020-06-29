@@ -8,12 +8,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+// curl 'http://127.0.0.1:8080/api/modeling/dimensions' -d '{}'
 @WebServlet("/api/modeling/dimensions")
 public class Dimensions extends HttpServlet {
 
-    protected void doGet(HttpServletRequest request,
+    protected void doPost(HttpServletRequest request,
                          HttpServletResponse response) {
-        ServletHandler.handle(request, response, () -> Database.list(Dimension.class,
-                "select id, name, cn_name, type, table_id, creator_id, created_on from dimensions where deleted = 0 order by name"));
+        ServletHandler.handle(request, response, (currentUser) -> Database.list(Dimension.class,
+                "select id, seller_id, name, cn_name, remarks, identity_id, data_type, creator_id, created_on from m_dimensions where deleted = 0 order by name"));
     }
 }

@@ -1,6 +1,7 @@
 package com.bugever.lychee.database.engine;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 
 public class MySQLEngine implements Engine {
 
@@ -8,12 +9,12 @@ public class MySQLEngine implements Engine {
     }
 
     @Override
-    public void initDataIfNeeded() {
-
+    public Connection getConnection() {
+        return null;
     }
 
     @Override
-    public Connection getConnection() {
-        return null;
+    public boolean isExistException(SQLException e) {
+        return false;
     }
 }

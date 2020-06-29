@@ -5,6 +5,7 @@ import com.bugever.lychee.util.ConfigUtil;
 import org.eclipse.jetty.annotations.AnnotationConfiguration;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.webapp.Configuration;
+import org.eclipse.jetty.webapp.WebAppClassLoader;
 import org.eclipse.jetty.webapp.WebAppContext;
 import org.eclipse.jetty.webapp.WebInfConfiguration;
 import org.slf4j.Logger;
@@ -29,6 +30,8 @@ public class WebServer {
 
         Server server = new Server(ConfigUtil.getInt("web.port"));
         WebAppContext webapp = new WebAppContext();
+        // Reuse system ClassLoader to share Database.class.
+        webapp.setClassLoader(Thread.currentThread().getContextClassLoader());
         webapp.setResourceBase("webapp");
         webapp.setConfigurations(new Configuration[] {
                 new AnnotationConfiguration(),

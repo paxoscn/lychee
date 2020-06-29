@@ -59,6 +59,9 @@ cn_name varchar(128) not null,
 remarks varchar(256) not null,
 identity_id int not null default 0,
 data_type varchar(16) not null comment 'number, boolean, enum, string, time',
+creator_id int not null,
+created_on datetime not null,
+deleted int not null,
 primary key(id),
 unique key(seller_id, name)
 );
