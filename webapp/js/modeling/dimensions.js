@@ -8,9 +8,9 @@ function showDimensionDetail(e) {
 }
 
 window.addEventListener("load", function() {
-    ajax('GET', '/api/modeling/dimensions', null, function(res) {
+    ajax('POST', '/api/modeling/dimensions', {}, function(res) {
         res.forEach(function(item) {
-            tr($("dimension-table"), item, [ item.Name, item.CnName, item.Type, item.CreatorId, item.CreatedOn, "<button onclick='showDimensionDetail(event)'>详情</button>" ])
+            tr($("dimension-table"), item, [ item.name, item.cn_name, item.remarks, item.identity_id, item.data_type, item.creator_id, item.created_on, "<button onclick='showDimensionDetail(event)'>详情</button>" ])
         })  
     })  
 })

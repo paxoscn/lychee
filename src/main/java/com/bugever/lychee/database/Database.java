@@ -7,13 +7,11 @@ import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.xml.transform.Result;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
@@ -37,17 +35,21 @@ public class Database {
         initDataIfNeeded(protocol);
     }
 
-    public static <E> List<E> list(Class<E> entityType, String sql) throws Exception {
+    public static <E> List<E> list(Class<E> entityType, String sql, Object... params) throws Exception {
         try (Connection conn = engine.getConnection();
-             Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery(sql)) {
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            for (int i = 0; i < params.length; ++i) {
+                stmt.setObject(i + 1, params[i]);
+            }
             List<E> entities = new LinkedList<>();
-            while (rs.next()) {
-                E entity = entityType.newInstance();
-                entities.add(entity);
+            try (ResultSet rs = stmt.executeQuery()) {
+                while (rs.next()) {
+                    E entity = entityType.newInstance();
+                    entities.add(entity);
 
-                for (int col = 1; col <= rs.getMetaData().getColumnCount(); col++) {
-                    setField(entity, rs, col);
+                    for (int col = 1; col <= rs.getMetaData().getColumnCount(); col++) {
+                        setField(entity, rs, col);
+                    }
                 }
             }
             return entities;

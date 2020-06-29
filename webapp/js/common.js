@@ -32,7 +32,7 @@ var ajax = function(method, path, body, callback) {
                 alert("出现错误：" + res.message);
             }
         } else {
-            callback(res.data);
+            callback(res.body);
         }
     };
     req.send(body == null ? null : body.toString().indexOf("FormData") > -1 ? body : JSON.stringify(body));

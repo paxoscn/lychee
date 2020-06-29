@@ -3,11 +3,10 @@ package com.bugever.lychee.web;
 import com.bugever.lychee.database.Database;
 import com.bugever.lychee.util.ConfigUtil;
 import org.eclipse.jetty.annotations.AnnotationConfiguration;
+import org.eclipse.jetty.plus.webapp.EnvConfiguration;
+import org.eclipse.jetty.plus.webapp.PlusConfiguration;
 import org.eclipse.jetty.server.Server;
-import org.eclipse.jetty.webapp.Configuration;
-import org.eclipse.jetty.webapp.WebAppClassLoader;
-import org.eclipse.jetty.webapp.WebAppContext;
-import org.eclipse.jetty.webapp.WebInfConfiguration;
+import org.eclipse.jetty.webapp.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,8 +33,11 @@ public class WebServer {
         webapp.setClassLoader(Thread.currentThread().getContextClassLoader());
         webapp.setResourceBase("webapp");
         webapp.setConfigurations(new Configuration[] {
+                // These two lines makes @WebServlet work.
                 new AnnotationConfiguration(),
-                new WebInfConfiguration()
+                new WebInfConfiguration(),
+                // This line makes the root folder of HTML work.
+                new WebXmlConfiguration()
         });
         server.setHandler(webapp);
         try {

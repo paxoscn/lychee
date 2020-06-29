@@ -4,7 +4,6 @@ import java.util.Date;
 
 public class Dimension {
     public int id;
-    public int seller_id;
     public String name;
     public String cn_name;
     public String remarks;
