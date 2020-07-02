@@ -49,6 +49,7 @@ cn_name varchar(128) not null,
 remarks varchar(256) not null,
 identity_id int not null default 0,
 data_type varchar(16) not null,
+desensitization_method varchar(16) not null,
 creator_id int not null,
 created_on datetime not null,
 deleted int not null

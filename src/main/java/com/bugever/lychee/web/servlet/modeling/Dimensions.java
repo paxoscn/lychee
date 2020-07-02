@@ -18,8 +18,9 @@ public class Dimensions extends HttpServlet {
     protected void doPost(HttpServletRequest request,
                           HttpServletResponse response) {
         ServletHandler.handle(request, response, (currentUser) -> Database.list(Dimension.class,
-                "select id, name, cn_name, remarks, identity_id, data_type, creator_id," +
-                        " created_on from m_dimensions where seller_id = ? and deleted = 0 order by name",
+                "select id, name, cn_name, remarks, identity_id, data_type, desensitization_method," +
+                        " creator_id, created_on from m_dimensions where seller_id = ? and deleted = 0" +
+                        " order by name",
                 currentUser.attributes.get(TOKEN_ATTR_SELLER)));
     }
 }
