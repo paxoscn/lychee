@@ -624,6 +624,36 @@ insert into m_metrics values (6, 1003, 'refund_amount', '退款金额', '', 1, '
 insert into m_metrics values (7, 1003, 'number_received', '领取数', '', 1, '2020-01-01 00:00:00.000', 0);
 insert into m_metrics values (8, 1003, 'used_num', '使用数量', '', 1, '2020-01-01 00:00:00.000', 0);
 
+delete from m_physical_tables;
+
+insert into m_physical_tables values (1, 1003, 1, 2, 'ads_basic_infos', '', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_physical_tables values (2, 1003, 2, 2, 'ads_purchases', '', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_physical_tables values (3, 1003, 3, 2, 'ads_daily_purchases', '', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_physical_tables values (5, 1003, 5, 2, 'ads_app_events', '', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_physical_tables values (6, 1003, 6, 2, 'ads_consuming_portraits', '', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_physical_tables values (7, 1003, 7, 1, 'ads_crowds', '', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_physical_tables values (8, 1003, 8, 1, 'ads_crowd_instances', '', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_physical_tables values (9, 1003, 9, 2, 'ads_crowd_instance_members', '', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_physical_tables values (10, 1003, 10, 2, 'ads_event_address', '', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_physical_tables values (11, 1003, 11, 2, 'ads_event_order', '', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_physical_tables values (12, 1003, 12, 2, 'ads_event_cart', '', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_physical_tables values (13, 1003, 13, 2, 'ads_event_share', '', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_physical_tables values (14, 1003, 14, 2, 'ads_event_coupon', '', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_physical_tables values (15, 1003, 15, 2, 'ads_event_activity', '', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_physical_tables values (16, 1003, 16, 2, 'ads_event_app', '', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_physical_tables values (17, 1003, 17, 2, 'ads_event_login', '', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_physical_tables values (18, 1003, 18, 2, 'tags_mbr_memberbaseinfo_d', '', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_physical_tables values (19, 1003, 19, 2, 'tags_mbr_customerlifecyclestage_d', '', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_physical_tables values (20, 1003, 20, 2, 'tags_mbr_memberbuyinfo_d', '', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_physical_tables values (21, 1003, 21, 2, 'tags_mbr_memberloyalty_d', '', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_physical_tables values (22, 1003, 22, 2, 'tags_mbr_preferredbrand_d', '', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_physical_tables values (23, 1003, 23, 2, 'tags_mbr_preferredcategory_d', '', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_physical_tables values (24, 1003, 24, 2, 'tags_mbr_pricesensitivity_d', '', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_physical_tables values (25, 1003, 25, 2, 'tags_mbr_discountsensitivity_d', '', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_physical_tables values (26, 1003, 26, 2, 'tags_mbr_preferredconsumptionchannel_d', '', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_physical_tables values (27, 1003, 27, 2, 'tags_mbr_preferredinteractchannel_d', '', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_physical_tables values (28, 1003, 28, 2, 'tags_mbr_preferredactiontype_d', '', 1, '2020-01-01 00:00:00.000', 0);
+
 delete from m_data_sources;
 
 insert into m_data_sources values (1, 1003, 'mysql', 'mysql_pro_cdp', 'MySQL Production', '', 1, '2020-01-01 00:00:00.000', 0);
