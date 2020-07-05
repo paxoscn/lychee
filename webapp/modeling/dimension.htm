@@ -19,49 +19,48 @@
                     <input type='hidden' id='id' />
                     <table>
                         <tr>
-                            <th>维度名称*</th>
+                            <th>名称*</th>
                             <td><input id='name' /></td>
                         </tr>
                         <tr>
-                            <th>维度中文名称</th>
+                            <th>中文名称</th>
                             <td><input id='cn_name' /></td>
                         </tr>
                         <tr>
-                            <th>维度类型</th>
+                            <th>描述</th>
+                            <td><input id='remarks' /></td>
+                        </tr>
+                        <tr>
+                            <th>标识</th>
                             <td>
-                                <label><input id='type_table' type='radio' name='type' value='table' checked />维度表</label>
-                                <label><input id='type_enum' type='radio' name='type' value='enum' />枚举</label>
+                                <input type='hidden' id='identity_id' />
+                                <span id='identity_name'></span>
+                                <button id='identity_selecting_button' onclick='selectIdentity();'>选择标识</button>
                             </td>
                         </tr>
                         <tr>
-                            <th>维度表</th>
+                            <th>类型</th>
                             <td>
-                                <input type='hidden' id='table_id' />
-                                <span id='table_name'></span>
-                                <button id='table_selecting_button' onclick='selectDimensionTable();'>选择维度表</button>
+                                <label><input id='data_type_string' type='radio' name='data_type' value='string' checked />string</label>
+                                <label><input id='data_type_number' type='radio' name='data_type' value='number' />number</label>
+                                <label><input id='data_type_boolean' type='radio' name='data_type' value='boolean' />boolean</label>
+                                <label><input id='data_type_enum' type='radio' name='data_type' value='enum' />enum</label>
+                                <label><input id='data_type_time' type='radio' name='data_type' value='time' />time</label>
                             </td>
                         </tr>
-                    </table>
-                </div>
-                <div id='enum_values'>
-                    <button onclick='addEnumValue();'>增加枚举值</button>
-                    <table>
                         <tr>
-                            <th>枚举值</th>
-                            <th>名称</th>
-                            <th>操作</th>
+                            <th>脱敏方式</th>
+                            <td>
+                                <label><input id='desensitization_method_' type='radio' name='desensitization_method' value='' checked />无</label>
+                                <label><input id='desensitization_method_clean' type='radio' name='desensitization_method' value='clean' />清除</label>
+                                <label><input id='desensitization_method_md5' type='radio' name='desensitization_method' value='md5' />MD5</label>
+                                <label><input id='desensitization_method_sha1' type='radio' name='desensitization_method' value='sha1' />SHA-1</label>
+                                <label><input id='desensitization_method_sha256' type='radio' name='desensitization_method' value='sha256' />SHA-256</label>
+                            </td>
                         </tr>
                     </table>
                 </div>
             </div>
-        </div>
-        <div id='table_selector'>
-            <table>
-                <tr>
-                    <th>数据源</th>
-                    <th>表名</th>
-                </tr>
-            </table>
         </div>
     </body>
 </html>

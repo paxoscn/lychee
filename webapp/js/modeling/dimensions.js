@@ -4,7 +4,7 @@ function showDimensionDetail(e) {
         el = el.parentNode
     }
 
-    location = "/modeling/dimension.htm?id=" + el.obj.Id
+    location = "/modeling/dimension.htm?id=" + el.obj.id
 }
 
 window.addEventListener("load", function() {
