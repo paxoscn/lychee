@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="/css/common.css">
+        <script type="text/javascript" src="/js/common.js"></script>
+        <script type="text/javascript" src="/js/modeling/metrics.js"></script>
+    </head>
+    <body>
+        <div>
+            <div></div>
+            <div id='menu'></div>
+            <div id='content'>
+                <div>
+                    <button onclick='saveMetrics();'>保存</button>
+                    <button onclick='deleteMetrics();'>删除</button>
+                </div>
+                <div>
+                    <input type='hidden' id='id' />
+                    <table>
+                        <tr>
+                            <th>名称*</th>
+                            <td><input id='name' /></td>
+                        </tr>
+                        <tr>
+                            <th>中文名称</th>
+                            <td><input id='cn_name' /></td>
+                        </tr>
+                        <tr>
+                            <th>描述</th>
+                            <td><input id='remarks' /></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

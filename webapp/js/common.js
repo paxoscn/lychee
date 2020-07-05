@@ -48,6 +48,14 @@ function initMenu() {
                     "href": "/modeling/dimensions.htm"
                 },
                 {
+                    "title": "指标管理",
+                    "href": "/modeling/metrics-list.htm"
+                },
+                {
+                    "title": "标识管理",
+                    "href": "/modeling/identities.htm"
+                },
+                {
                     "title": "逻辑表管理",
                     "href": "/modeling/logical-tables.htm"
                 },
