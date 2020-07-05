@@ -623,3 +623,36 @@ insert into m_metrics values (5, 1003, 'product_num', '商品数量', '', 1, '20
 insert into m_metrics values (6, 1003, 'refund_amount', '退款金额', '', 1, '2020-01-01 00:00:00.000', 0);
 insert into m_metrics values (7, 1003, 'number_received', '领取数', '', 1, '2020-01-01 00:00:00.000', 0);
 insert into m_metrics values (8, 1003, 'used_num', '使用数量', '', 1, '2020-01-01 00:00:00.000', 0);
+
+delete from m_data_sources;
+
+insert into m_data_sources values (1, 1003, 'mysql', 'mysql_pro_cdp', 'MySQL Production', '', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_data_sources values (2, 1003, 'mysql', 'adb_pro_cdp', 'Alibaba AnalyticDB Production', '', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_data_sources values (3, 1003, 'hive2', 'hive_pro_cdp', 'Hive Production', '', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_data_sources values (4, 1003, 'clickhouse', 'ck_pro_cdp', 'Clickhouse Production', '', 1, '2020-01-01 00:00:00.000', 0);
+
+delete from m_data_source_params;
+
+insert into m_data_source_params values (1, 1, 'host', '127.0.0.1', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_data_source_params values (2, 1, 'port', '3306', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_data_source_params values (3, 1, 'user', 'root', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_data_source_params values (4, 1, 'password', '123456', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_data_source_params values (5, 1, 'database', 'cdp', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_data_source_params values (6, 2, 'host', '127.0.0.1', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_data_source_params values (7, 2, 'port', '10001', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_data_source_params values (8, 2, 'user', 'adb', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_data_source_params values (9, 2, 'password', '123456', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_data_source_params values (10, 2, 'database', 'cdp', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_data_source_params values (11, 3, 'host', '10.203.20.15', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_data_source_params values (12, 3, 'port', '7001', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_data_source_params values (13, 3, 'user', 'bbg_dc', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_data_source_params values (14, 3, 'password', 'bbg_dc123', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_data_source_params values (15, 3, 'database', 'jkcrm', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_data_source_params values (16, 3, 'fs', 'HDFS3819', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_data_source_params values (17, 3, 'root', '/share/jkcrm', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_data_source_params values (18, 3, 'queue', 'jkcrm_queue', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_data_source_params values (19, 4, 'host', '127.0.0.1', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_data_source_params values (20, 4, 'port', '9900', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_data_source_params values (21, 4, 'user', 'sa', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_data_source_params values (22, 4, 'password', '123456', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_data_source_params values (23, 4, 'database', 'cdp', 1, '2020-01-01 00:00:00.000', 0);

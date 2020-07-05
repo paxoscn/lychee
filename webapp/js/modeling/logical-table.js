@@ -45,8 +45,8 @@ function selectMetrics() {
 
 function trColumn(tableId, item, index) {
     var cols = [
-            "<label><input type='radio' name='column_" + index + "_is_indexed' value='1' " + (item.is_indexed == 1 ? "checked" : "") + " />是</label>"
-                       + "<label><input type='radio' name='column_" + index + "_is_indexed' value='0' " + (item.is_indexed != 1 ? "checked" : "") + " />否</label>",
+            "<label><input type='radio' name='" + tableId + "_column_" + index + "_is_indexed' value='1' " + (item.is_indexed == 1 ? "checked" : "") + " />是</label>"
+                       + "<label><input type='radio' name='" + tableId + "_column_" + index + "_is_indexed' value='0' " + (item.is_indexed != 1 ? "checked" : "") + " />否</label>",
             "<input name='column_name' value='" + item.name + "' />",
             "<input name='column_cn_name' value='" + item.cn_name + "' />",
             "<input name='column_remarks' value='" + item.remarks + "' />" ]

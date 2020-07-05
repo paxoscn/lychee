@@ -7,7 +7,6 @@ import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.xml.transform.Result;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
@@ -59,7 +58,7 @@ public class Database {
     private static void initDataIfNeeded(String protocol) throws SQLException, IOException {
         try (Connection conn = engine.getConnection()) {
             for (String sql : FileUtils.readFileToString(
-                    new File("sql/ddl-" + protocol + ".sql"), "UTF-8").split(";")) {
+                    new File("sql/" + protocol + ".sql"), "UTF-8").split(";")) {
                 try (Statement stmt = conn.createStatement()) {
                     int rows = stmt.executeUpdate(sql);
                     System.out.println(sql + " = " + rows);

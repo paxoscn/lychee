@@ -88,7 +88,7 @@ function initMenu() {
             "children": [
                 {
                     "title": "数据源管理",
-                    "href": "/system/sources.htm"
+                    "href": "/system/data-sources.htm"
                 },
                 {
                     "title": "操作审计",

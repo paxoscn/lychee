@@ -108,14 +108,20 @@ seller_id int not null,
 driver varchar(32) not null,
 name varchar(128) not null,
 cn_name varchar(128) not null,
-remarks varchar(256) not null
+remarks varchar(256) not null,
+creator_id int not null,
+created_on datetime not null,
+deleted int not null
 );
 
 create table m_data_source_params (
 id int not null primary key,
 data_source_id int not null,
 param_name varchar(128) not null,
-param_value varchar(256) not null
+param_value varchar(256) not null,
+creator_id int not null,
+created_on datetime not null,
+deleted int not null
 );
 
 create table m_driver_param_definitions (
@@ -123,3 +129,7 @@ id int not null primary key,
 driver varchar(32) not null,
 param_name varchar(128) not null
 );
+
+insert into m_driver_param_definitions values (1, 'Hive2', 'fs');
+insert into m_driver_param_definitions values (2, 'Hive2', 'root');
+insert into m_driver_param_definitions values (3, 'Hive2', 'queue');

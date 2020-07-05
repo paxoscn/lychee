@@ -1,7 +1,6 @@
 package com.bugever.lychee.web.servlet.modeling;
 
 import com.bugever.lychee.database.Database;
-import com.bugever.lychee.domain.Dimension;
 import com.bugever.lychee.domain.Metrics;
 import com.bugever.lychee.web.servlet.ServletHandler;
 
@@ -10,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import static com.bugever.lychee.web.servlet.Constants.TOKEN_ATTR_SELLER;
+import static com.bugever.lychee.web.servlet.Helper.TOKEN_ATTR_SELLER;
 
 // curl 'http://127.0.0.1:8080/api/modeling/dimensions' -d '{}'
 @WebServlet("/api/modeling/metrics-list")

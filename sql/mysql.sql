@@ -125,10 +125,13 @@ unique key(physical_table_id, logical_table_column_id)
 create table if not exists m_data_sources (
 id int not null auto_increment,
 seller_id int not null,
-driver varchar(32) not null comment 'Hive, MySQL, Clickhouse',
+driver varchar(32) not null comment 'hive2, mysql, clickhouse',
 name varchar(128) not null,
 cn_name varchar(128) not null,
 remarks varchar(256) not null,
+creator_id int not null,
+created_on datetime not null,
+deleted int not null,
 primary key(id),
 unique key(seller_id, name)
 );
@@ -138,14 +141,21 @@ id int not null auto_increment,
 data_source_id int not null,
 param_name varchar(128) not null,
 param_value varchar(256) not null,
+creator_id int not null,
+created_on datetime not null,
+deleted int not null,
 primary key(id),
 unique key(data_source_id, param_name)
 );
 
 create table if not exists m_driver_param_definitions (
 id int not null auto_increment,
-driver varchar(32) not null comment 'Hive, MySQL, Clickhouse',
-param_name varchar(128) not null,
+driver varchar(32) not null comment 'hive2, mysql, clickhouse',
+param_name varchar(128) not null comment 'Preset params not needed: host, port, user, password, database',
 primary key(id),
 unique key(driver, param_name)
 );
+
+insert into m_driver_param_definitions values (1, 'hive2', 'fs');
+insert into m_driver_param_definitions values (2, 'hive2', 'root');
+insert into m_driver_param_definitions values (3, 'hive2', 'queue');

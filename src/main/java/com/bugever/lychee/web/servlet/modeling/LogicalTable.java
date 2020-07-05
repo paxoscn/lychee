@@ -3,6 +3,7 @@ package com.bugever.lychee.web.servlet.modeling;
 import com.bugever.lychee.database.Database;
 import com.bugever.lychee.domain.LogicalTableColumn;
 import com.bugever.lychee.util.ParameterizedQuery;
+import com.bugever.lychee.web.servlet.Helper;
 import com.bugever.lychee.web.servlet.ServletHandler;
 
 import javax.servlet.annotation.WebServlet;
@@ -12,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import java.util.List;
 
-import static com.bugever.lychee.web.servlet.Constants.TOKEN_ATTR_SELLER;
+import static com.bugever.lychee.web.servlet.Helper.TOKEN_ATTR_SELLER;
 
 // curl 'http://127.0.0.1:8080/api/modeling/logical-table' -d '{ "id": 0 }'
 @WebServlet("/api/modeling/logical-table")
@@ -20,7 +21,7 @@ public class LogicalTable extends HttpServlet {
 
     protected void doPost(HttpServletRequest request,
                           HttpServletResponse response) {
-        ServletHandler.handle(request, response, LogicalTableRequest.class, (currentUser, input) -> {
+        ServletHandler.handle(request, response, Helper.IdRequest.class, (currentUser, input) -> {
             com.bugever.lychee.domain.LogicalTable logicalTable = new com.bugever.lychee.domain.LogicalTable();
             if (input.id > 0) {
                 ParameterizedQuery query = new ParameterizedQuery(
@@ -44,9 +45,5 @@ public class LogicalTable extends HttpServlet {
             }
             return logicalTable;
         });
-    }
-
-    public static class LogicalTableRequest {
-        public int id;
     }
 }

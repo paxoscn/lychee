@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="/css/common.css">
+        <script type="text/javascript" src="/js/common.js"></script>
+        <script type="text/javascript" src="/js/system/data-source.js"></script>
+    </head>
+    <body>
+        <div>
+            <div></div>
+            <div id='menu'></div>
+            <div id='content'>
+                <div>
+                    <button onclick='saveDataSource();'>保存</button>
+                    <button onclick='deleteDataSource();'>删除</button>
+                </div>
+                <div>
+                    <input type='hidden' id='id' />
+                    <table>
+                        <tr>
+                            <th>驱动</th>
+                            <td>
+                                <label><input id='driver_mysql' type='radio' name='driver' value='mysql' class='driver' checked />mysql</label>
+                                <label><input id='driver_hive2' type='radio' name='driver' value='hive2' class='driver' />hive2</label>
+                                <label><input id='driver_clickhouse' type='radio' name='driver' value='clickhouse' class='driver' />clickhouse</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>名称*</th>
+                            <td><input id='name' /></td>
+                        </tr>
+                        <tr>
+                            <th>中文名称</th>
+                            <td><input id='cn_name' /></td>
+                        </tr>
+                        <tr>
+                            <th>描述</th>
+                            <td><input id='remarks' /></td>
+                        </tr>
+                        <tr>
+                            <th>参数</th>
+                            <td>
+                                <table id='param-table'>
+                                    <tr>
+                                        <th>名称</th>
+                                        <th>取值</th>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
