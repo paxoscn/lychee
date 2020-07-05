@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="/css/common.css">
+        <script type="text/javascript" src="/js/common.js"></script>
+        <script type="text/javascript" src="/js/modeling/logical-tables.js"></script>
+    </head>
+    <body>
+        <div>
+            <div></div>
+            <div id='menu'></div>
+            <div id='content'>
+                <div>
+                    <button onclick='addLogicalTable();'>创建逻辑表</button>
+                </div>
+                <div>
+                    <div>层级</div>
+                    <div>
+                        <label><input type="radio" name="layer" value="" checked="true" />全部层级</label>
+                        <label><input type="radio" name="layer" value="ODS" />ODS</label>
+                        <label><input type="radio" name="layer" value="DWD" />DWD</label>
+                        <label><input type="radio" name="layer" value="DWM" />DWM</label>
+                        <label><input type="radio" name="layer" value="DWS" />DWS</label>
+                        <label><input type="radio" name="layer" value="ADS" />ADS</label>
+                    </div>
+                </div>
+                <div>
+                    <div>角色</div>
+                    <div>
+                        <label><input type="radio" name="role" value="" checked="true" />全部角色</label>
+                        <label><input type="radio" name="role" value="dimension" />维度表</label>
+                        <label><input type="radio" name="role" value="fact" />事实表</label>
+                    </div>
+                </div>
+                <div>
+                    <table id='logical-table-table'>
+                        <tr>
+                            <th>层级</th>
+                            <th>名称</th>
+                            <th>中文名称</th>
+                            <th>描述</th>
+                            <th>包含OneID</th>
+                            <th>角色</th>
+                            <th>创建者</th>
+                            <th>创建时间</th>
+                            <th>操作</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

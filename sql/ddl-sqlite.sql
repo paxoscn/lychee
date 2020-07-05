@@ -5,7 +5,11 @@ layer varchar(8) not null,
 name varchar(128) not null,
 cn_name varchar(128) not null,
 remarks varchar(256) not null,
-has_oneid tinyint not null default 0
+has_oneid tinyint not null default 0,
+is_fact tinyint not null default 0,
+creator_id int not null,
+created_on datetime not null,
+deleted int not null
 );
 
 create table m_logical_table_columns (
@@ -16,7 +20,8 @@ cn_name varchar(128) not null,
 remarks varchar(256) not null,
 dimension_id int not null default 0,
 dimension_group_id int not null default 0,
-metrics_id int not null default 0
+metrics_id int not null default 0,
+is_primary_key tinyint not null default 0
 );
 
 create table m_identities (

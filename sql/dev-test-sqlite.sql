@@ -2,6 +2,36 @@
 sqlite3 database.db < sql/dev-test-sqlite.sql
 */
 
+delete from m_logical_tables;
+
+insert into m_logical_tables values (1, 1003, 'ADS', 'ads_basic_infos', '基础标签表', '', 1, 0, 1, '2020-01-01 00:00:00.000', 0);
+insert into m_logical_tables values (2, 1003, 'ADS', 'ads_purchases', '订单事实表', '', 1, 1, 1, '2020-01-01 00:00:00.000', 0);
+insert into m_logical_tables values (3, 1003, 'ADS', 'ads_daily_purchases', '每日购买事实表', '', 1, 1, 1, '2020-01-01 00:00:00.000', 0);
+insert into m_logical_tables values (5, 1003, 'ADS', 'ads_app_events', 'APP使用事实表', '', 1, 1, 1, '2020-01-01 00:00:00.000', 0);
+insert into m_logical_tables values (6, 1003, 'ADS', 'ads_consuming_portraits', '消费标签表', '', 1, 0, 1, '2020-01-01 00:00:00.000', 0);
+insert into m_logical_tables values (7, 1003, 'ADS', 'ads_crowds', '人群表', '', 0, 0, 1, '2020-01-01 00:00:00.000', 0);
+insert into m_logical_tables values (8, 1003, 'ADS', 'ads_crowd_instances', '人群实例表', '', 0, 0, 1, '2020-01-01 00:00:00.000', 0);
+insert into m_logical_tables values (9, 1003, 'ADS', 'ads_crowd_instance_members', '人群实例成员表', '', 1, 0, 1, '2020-01-01 00:00:00.000', 0);
+insert into m_logical_tables values (10, 1003, 'ADS', 'ads_event_address', '收货地址事实表', '', 1, 1, 1, '2020-01-01 00:00:00.000', 0);
+insert into m_logical_tables values (11, 1003, 'ADS', 'ads_event_order', '订单事实表', '', 1, 1, 1, '2020-01-01 00:00:00.000', 0);
+insert into m_logical_tables values (12, 1003, 'ADS', 'ads_event_cart', '购物车事实表', '', 1, 1, 1, '2020-01-01 00:00:00.000', 0);
+insert into m_logical_tables values (13, 1003, 'ADS', 'ads_event_share', '分享事实表', '', 1, 1, 1, '2020-01-01 00:00:00.000', 0);
+insert into m_logical_tables values (14, 1003, 'ADS', 'ads_event_coupon', '优惠券事实表', '', 1, 1, 1, '2020-01-01 00:00:00.000', 0);
+insert into m_logical_tables values (15, 1003, 'ADS', 'ads_event_activity', '活动事实表', '', 1, 1, 1, '2020-01-01 00:00:00.000', 0);
+insert into m_logical_tables values (16, 1003, 'ADS', 'ads_event_app', 'APP事实表', '', 1, 1, 1, '2020-01-01 00:00:00.000', 0);
+insert into m_logical_tables values (17, 1003, 'ADS', 'ads_event_login', '登录注册事实表', '', 1, 1, 1, '2020-01-01 00:00:00.000', 0);
+insert into m_logical_tables values (18, 1003, 'ADS', 'tags_mbr_memberbaseinfo_d', '用户表', '', 1, 0, 1, '2020-01-01 00:00:00.000', 0);
+insert into m_logical_tables values (19, 1003, 'ADS', 'tags_mbr_customerlifecyclestage_d', '生命周期表', '', 1, 0, 1, '2020-01-01 00:00:00.000', 0);
+insert into m_logical_tables values (20, 1003, 'ADS', 'tags_mbr_memberbuyinfo_d', '会员价值表', '', 1, 0, 1, '2020-01-01 00:00:00.000', 0);
+insert into m_logical_tables values (21, 1003, 'ADS', 'tags_mbr_memberloyalty_d', '会员忠诚度表', '', 1, 0, 1, '2020-01-01 00:00:00.000', 0);
+insert into m_logical_tables values (22, 1003, 'ADS', 'tags_mbr_preferredbrand_d', '商品偏好表', '', 1, 0, 1, '2020-01-01 00:00:00.000', 0);
+insert into m_logical_tables values (23, 1003, 'ADS', 'tags_mbr_preferredcategory_d', '品类偏好表', '', 1, 0, 1, '2020-01-01 00:00:00.000', 0);
+insert into m_logical_tables values (24, 1003, 'ADS', 'tags_mbr_pricesensitivity_d', '价格敏感度表', '', 1, 0, 1, '2020-01-01 00:00:00.000', 0);
+insert into m_logical_tables values (25, 1003, 'ADS', 'tags_mbr_discountsensitivity_d', '优惠敏感度表', '', 1, 0, 1, '2020-01-01 00:00:00.000', 0);
+insert into m_logical_tables values (26, 1003, 'ADS', 'tags_mbr_preferredconsumptionchannel_d', '消费渠道偏好表', '', 1, 0, 1, '2020-01-01 00:00:00.000', 0);
+insert into m_logical_tables values (27, 1003, 'ADS', 'tags_mbr_preferredinteractchannel_d', '互动渠道偏好表', '', 1, 0, 1, '2020-01-01 00:00:00.000', 0);
+insert into m_logical_tables values (28, 1003, 'ADS', 'tags_mbr_preferredactiontype_d', '活动类型偏好表', '', 1, 0, 1, '2020-01-01 00:00:00.000', 0);
+
 delete from m_dimensions;
 
 insert into m_dimensions values (2, 1003, 'age', '年龄', '', 0, 'number', '', 1, '2020-01-01 00:00:00.000', 0);

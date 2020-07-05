@@ -48,12 +48,12 @@ function initMenu() {
                     "href": "/modeling/dimensions.htm"
                 },
                 {
-                    "title": "维度表管理",
-                    "href": "/modeling/dimension-tables.htm"
+                    "title": "逻辑表管理",
+                    "href": "/modeling/logical-tables.htm"
                 },
                 {
-                    "title": "事实表管理",
-                    "href": "/modeling/fact-tables.htm"
+                    "title": "物理表管理",
+                    "href": "/modeling/physical-tables.htm"
                 }
             ]
         },
@@ -127,6 +127,13 @@ function appendMenuItems(el, menu) {
     })
 
     el.appendChild(ul)
+}
+
+function tclean(table) {
+    var trs = table.getElementsByTagName("tr")
+    for (var i = trs.length - 1; i > 0; --i) {
+        table.getElementsByTagName("tbody")[0].removeChild(trs[i])
+    }
 }
 
 function tr(table, obj, cols) {

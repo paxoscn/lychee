@@ -6,6 +6,10 @@ name varchar(128) not null,
 cn_name varchar(128) not null,
 remarks varchar(256) not null,
 has_oneid tinyint not null default 0,
+is_fact tinyint not null default 0,
+creator_id int not null,
+created_on datetime not null,
+deleted int not null,
 primary key(id),
 unique key(seller_id, name)
 );
@@ -19,6 +23,7 @@ remarks varchar(256) not null,
 dimension_id int not null default 0 comment '与metrics_id二选一',
 dimension_group_id int not null default 0 comment '当dimension_id有值且该列属于一个维度组时有值',
 metrics_id int not null default 0 comment '与dimension_id二选一',
+is_primary_key tinyint not null default 0,
 primary key(id),
 unique key(table_id, name)
 );
