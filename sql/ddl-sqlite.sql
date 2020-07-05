@@ -21,7 +21,10 @@ remarks varchar(256) not null,
 dimension_id int not null default 0,
 dimension_group_id int not null default 0,
 metrics_id int not null default 0,
-is_primary_key tinyint not null default 0
+is_indexed tinyint not null default 0,
+creator_id int not null,
+created_on datetime not null,
+deleted int not null
 );
 
 create table m_identities (
@@ -77,7 +80,10 @@ id int not null primary key,
 seller_id int not null,
 name varchar(128) not null,
 cn_name varchar(128) not null,
-remarks varchar(256) not null
+remarks varchar(256) not null,
+creator_id int not null,
+created_on datetime not null,
+deleted int not null
 );
 
 create table m_physical_tables (

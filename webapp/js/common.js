@@ -136,24 +136,55 @@ function tclean(table) {
     }
 }
 
+// Ignores cols whose index are bigger than count of THs.
 function tr(table, obj, cols) {
+    var thCount = table.getElementsByTagName("th").length
     var tr = document.createElement("tr")
     tr.obj = obj
+    var i = 0
     cols.forEach(function(col) {
+        if (i++ >= thCount) {
+            return
+        }
         var td = document.createElement("td")
         td.innerHTML = col
         tr.appendChild(td)
     })
     table.getElementsByTagName("tbody")[0].appendChild(tr)
+    return tr
 }
 
-function showTableSelector(el, tables, onSelect) {
-    var trs = $("table_selector").getElementsByTagName("tr")
-    for (var i = trs.length - 1; i > 0; --i) {
-        $("table_selector").getElementsByTagName("tbody")[0].removeChild(trs[i])
+var lastSelectorEl = null
+
+function showItemSelector(el, selectorEl, multiple, items, onCols, onSelect) {
+    if (lastSelectorEl != null) {
+        lastSelectorEl.style.display = "none"
     }
-    tables.forEach(function(table) {
-        tr($("table_selector").getElementsByTagName("table")[0], { "table": table, "callback": onSelect }, [ table.SourceName, table.Name, "<button onclick='onTableSelected(event);'>Select</button>" ])
+    if (selectorEl.getElementsByClassName("buttons").length < 1) {
+        // Init.
+        var buttons = document.createElement("DIV")
+        buttons.className = "buttons"
+        if (multiple) {
+            buttons.innerHTML = "<button onclick='selectItems(event)'>Select</button>"
+            selectorEl.getElementsByTagName("tr")[0]
+                    .insertBefore(document.createElement("TH"), selectorEl.getElementsByTagName("th")[0])
+        }
+        buttons.innerHTML += "<button onclick='closeSelector()'>Close</button>"
+        selectorEl.insertBefore(buttons, selectorEl.getElementsByTagName("table")[0])
+    }
+    var trs = selectorEl.getElementsByTagName("tr")
+    for (var i = trs.length - 1; i > 0; --i) {
+        selectorEl.getElementsByTagName("tbody")[0].removeChild(trs[i])
+    }
+    items.forEach(function(item) {
+        var cols = onCols(item)
+        if (multiple) {
+            cols.unshift("<input type='checkbox' />")
+        }
+        var newTr = tr(selectorEl.getElementsByTagName("table")[0], { "item": item, "callback": onSelect }, cols)
+        if (!multiple) {
+            newTr.onclick = onItemSelected
+        }
     })
 
     var absLeft = 0; absTop = 0
@@ -162,20 +193,33 @@ function showTableSelector(el, tables, onSelect) {
         absTop += el.offsetTop
         el = el.offsetParent
     }
-    $("table_selector").style.display = "block"
-    $("table_selector").style.left = absLeft + "px"
-    $("table_selector").style.top = absTop + "px"
+    selectorEl.style.display = "block"
+    selectorEl.style.left = absLeft + "px"
+    selectorEl.style.top = absTop + "px"
+    lastSelectorEl = selectorEl
 }
 
-function onTableSelected(e) {
-    var el = e.target                                                                                                                                                        
+function selectItems(e) {
+    var trs = e.target.parentNode.parentNode.getElementsByTagName("tr")
+    for (var i = 1; i < trs.length; ++i) {
+        var tr = trs[i]
+        if (tr.getElementsByTagName("input")[0].checked) {
+            tr.obj.callback(tr.obj.item)
+        }
+    }
+
+    lastSelectorEl.style.display = "none"
+}
+
+function onItemSelected(e) {
+    var el = e.target
     while (el.nodeName != "TR") {
         el = el.parentNode
     }
 
     el.obj.callback(el.obj.table)
 
-    $("table_selector").style.display = "none"
+    lastSelectorEl.style.display = "none"
 }
 
 window.addEventListener("load", function() {
