@@ -59,6 +59,18 @@ td {
     padding-right: 5px;
     padding-bottom: 2px;
 }
+.banner {
+    background-image: url(/img/logo.png);
+    background-size: 100px;
+    background-repeat: no-repeat;
+    height: 56px;
+}
+.banner::after {
+    content: 'Lychee';
+    font-size: 30px;
+    padding-left: 100px;
+    font-style: italic;
+}
 #menu, #content {
     display: table-cell;
 }

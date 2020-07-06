@@ -214,5 +214,8 @@ function onItemSelected(e) {
 }
 
 window.addEventListener("load", function() {
+    var banner = $("menu").previousSibling.previousSibling
+    banner.className = "banner"
+
     initMenu()
 })
