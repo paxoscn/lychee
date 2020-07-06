@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="/css/common.css">
+        <script type="text/javascript" src="/js/common.js"></script>
+        <script type="text/javascript" src="/js/modeling/physical-tables-generation.js"></script>
+    </head>
+    <body>
+        <div>
+            <div></div>
+            <div id='menu'></div>
+            <div id='content'>
+                <div>
+                    <button onclick='saveLogicalTable();'>保存</button>
+                </div>
+                <div>
+                    <input type='hidden' id='id' />
+                    <table>
+                        <tr>
+                            <th>数据源</th>
+                            <td>
+                                <input type='hidden' id='data_source_id' />
+                                <span id='data_source_name'></span>
+                                <button id='data_source_selecting_button' onclick='selectDataSource();'>选择数据源</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>逻辑表</th>
+                            <td>
+                                <button id='logical_table_selecting_button' onclick='selectLogicalTables();'>选择逻辑表</button>
+                                <table id='logical-table-table'>
+                                    <tr>
+                                        <th>层级</th>
+                                        <th>名称</th>
+                                        <th>中文名称</th>
+                                        <th>描述</th>
+                                        <th>包含OneID</th>
+                                        <th>角色</th>
+                                        <th>操作</th>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id='logical_table_selector' class="item_selector">
+            <table>
+                <tr>
+                    <th>层级</th>
+                    <th>名称</th>
+                    <th>中文名称</th>
+                    <th>描述</th>
+                    <th>包含OneID</th>
+                    <th>角色</th>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>

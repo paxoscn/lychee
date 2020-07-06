@@ -4,7 +4,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="/css/common.css">
         <script type="text/javascript" src="/js/common.js"></script>
-        <script type="text/javascript" src="/js/modeling/metrics-list.js"></script>
+        <script type="text/javascript" src="/js/modeling/identity.js"></script>
     </head>
     <body>
         <div>
@@ -12,17 +12,23 @@
             <div id='menu'></div>
             <div id='content'>
                 <div>
-                    <button onclick='addMetrics();'>创建指标</button>
+                    <button onclick='saveIdentity();'>保存</button>
+                    <button onclick='deleteIdentity();'>删除</button>
                 </div>
                 <div>
-                    <table id='metrics-table'>
+                    <input type='hidden' id='id' />
+                    <table>
                         <tr>
-                            <th>名称</th>
+                            <th>名称*</th>
+                            <td><input id='name' /></td>
+                        </tr>
+                        <tr>
                             <th>中文名称</th>
+                            <td><input id='cn_name' /></td>
+                        </tr>
+                        <tr>
                             <th>描述</th>
-                            <th>创建者</th>
-                            <th>创建时间</th>
-                            <th>操作</th>
+                            <td><input id='remarks' /></td>
                         </tr>
                     </table>
                 </div>

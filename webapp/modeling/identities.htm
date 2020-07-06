@@ -4,7 +4,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="/css/common.css">
         <script type="text/javascript" src="/js/common.js"></script>
-        <script type="text/javascript" src="/js/modeling/physical-tables.js"></script>
+        <script type="text/javascript" src="/js/modeling/identities.js"></script>
     </head>
     <body>
         <div>
@@ -12,15 +12,13 @@
             <div id='menu'></div>
             <div id='content'>
                 <div>
-                    <button onclick='addPhysicalTable();'>创建物理表</button>
-                    <button onclick='generatePhysicalTables();'>从逻辑表批量生成物理表</button>
+                    <button onclick='addIdentity();'>创建标识</button>
                 </div>
                 <div>
-                    <table id='physical-table-table'>
+                    <table id='identity-table'>
                         <tr>
-                            <th>逻辑表</th>
-                            <th>数据源</th>
                             <th>名称</th>
+                            <th>中文名称</th>
                             <th>描述</th>
                             <th>创建者</th>
                             <th>创建时间</th>

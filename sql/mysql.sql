@@ -37,6 +37,9 @@ seller_id int not null,
 name varchar(8) not null,
 cn_name varchar(128) not null,
 remarks varchar(256) not null,
+creator_id int not null,
+created_on datetime not null,
+deleted int not null,
 primary key(id),
 unique key(seller_id, name)
 );

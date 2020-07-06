@@ -7,6 +7,10 @@ function showPhysicalTableDetail(e) {
     location = "/modeling/physical-table.htm?id=" + el.obj.id
 }
 
+function generatePhysicalTables() {
+    location = "/modeling/physical-tables-generation.htm"
+}
+
 window.addEventListener("load", function() {
     ajax('POST', '/api/modeling/physical-tables', {}, function(res) {
         res.forEach(function(item) {

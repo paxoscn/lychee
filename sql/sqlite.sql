@@ -32,7 +32,10 @@ id int not null primary key,
 seller_id int not null,
 name varchar(8) not null,
 cn_name varchar(128) not null,
-remarks varchar(256) not null
+remarks varchar(256) not null,
+creator_id int not null,
+created_on datetime not null,
+deleted int not null
 );
 
 create table m_dimension_groups (

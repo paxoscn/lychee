@@ -69,25 +69,16 @@ function initMenu() {
             "title": "数据处理",
             "children": [
                 {
-                    "title": "代码任务",
+                    "title": "SQL控制台",
                     "href": "/processing/snippet.htm"
                 },
                 {
-                    "title": "同步任务",
-                    "href": "/processing/sync.htm"
+                    "title": "任务安排",
+                    "href": "/processing/dag.htm"
                 },
                 {
                     "title": "任务实例",
-                    "children": [
-                        {
-                            "title": "自动实例",
-                            "href": "/processing/instances/auto.htm"
-                        },
-                        {
-                            "title": "手动实例",
-                            "href": "/processing/instances/manual.htm"
-                        }
-                    ]
+                    "href": "/processing/instances.htm"
                 }
             ]
         },

@@ -505,6 +505,12 @@ insert into m_logical_table_columns values (911730, 26, 'preferredconsumptioncha
 insert into m_logical_table_columns values (911731, 27, 'preferredinteractchannel', '互动渠道偏好', '', 9114, 0, 0, 0, 1, '2020-01-01 00:00:00.000', 0);
 insert into m_logical_table_columns values (911732, 28, 'preferredactiontype', '活动类型偏好', '', 9115, 0, 0, 0, 1, '2020-01-01 00:00:00.000', 0);
 
+delete from m_identities;
+
+insert into m_identities values (1, 1003, 'id_m', '会员ID', '', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_identities values (2, 1003, 'id_p', '电话号码', '', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_identities values (3, 1003, 'id_wx', '微信OpenID', '', 1, '2020-01-01 00:00:00.000', 0);
+
 delete from m_dimensions;
 
 insert into m_dimensions values (2, 1003, 'age', '年龄', '', 0, 'number', '', 1, '2020-01-01 00:00:00.000', 0);
