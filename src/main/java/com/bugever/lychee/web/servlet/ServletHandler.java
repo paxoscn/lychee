@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 
 public class ServletHandler {
 
@@ -23,14 +24,17 @@ public class ServletHandler {
                                    Class<IN> inputType, ApiCallable<IN, ?> apiCallable) {
         response.setContentType("application/json; charset=utf8");
         try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.setDateFormat(new SimpleDateFormat("yyyy-MM-dd HH:mm"));
+
             CurrentUser currentUser = CurrentUser.init(request);
 
             String inputJson = IOUtils.toString(request.getInputStream());
-            IN input = new ObjectMapper().readValue(inputJson, inputType);
+            IN input = objectMapper.readValue(inputJson, inputType);
 
             Object body = apiCallable.call(currentUser, input);
 
-            String json = "{ \"code\": 0, \"body\": " + new ObjectMapper().writeValueAsString(body) + " }";
+            String json = "{ \"code\": 0, \"body\": " + objectMapper.writeValueAsString(body) + " }";
             response.getOutputStream().write(json.getBytes());
         } catch (Exception e) {
             log.warn("Servlet handling failed", e);

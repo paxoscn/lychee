@@ -97,7 +97,7 @@ function renderJob(job) {
         line.setAttribute("y1", job.y)
         line.setAttribute("x2", dependedJob.x + 150)
         line.setAttribute("y2", dependedJob.y + 20)
-        line.setAttribute("stroke", "black")
+        line.setAttribute("stroke", "white")
         $("svg").appendChild(line)
     }
 }
