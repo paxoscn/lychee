@@ -10,6 +10,7 @@ public class CurrentUser {
 
     public static CurrentUser init(HttpServletRequest request) {
         CurrentUser currentUser = new CurrentUser();
+        currentUser.attributes.put("user", "1");
         currentUser.attributes.put("seller", "1003");
         return currentUser;
     }

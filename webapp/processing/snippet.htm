@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="/css/common.css">
+        <script type="text/javascript" src="/js/common.js"></script>
+        <script type="text/javascript" src="/js/processing/snippet.js"></script>
+    </head>
+    <body>
+        <div>
+            <div></div>
+            <div id='menu'></div>
+            <div id='content'>
+                <div>
+                    <button onclick='runSnippet();'>执行</button>
+                    <button onclick='stopSnippet();'>停止</button>
+                    <button onclick='saveSnippet();'>保存</button>
+                </div>
+                <div>
+                    <div>
+                        最后更新时间:
+                        <span id='updated_on'></span>
+                    </div>
+                    <div>
+                        <textarea id='snippet'></textarea>
+                    </div>
+                    <div>
+                        <div id='console'>
+                        </div>
+                        <div id='results'>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

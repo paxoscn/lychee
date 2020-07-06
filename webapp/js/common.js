@@ -90,16 +90,8 @@ function initMenu() {
                     "href": "/system/data-sources.htm"
                 },
                 {
-                    "title": "操作审计",
-                    "href": "/system/op-logs.htm"
-                },
-                {
-                    "title": "接口审计",
-                    "href": "/system/api-logs.htm"
-                },
-                {
-                    "title": "权限管理",
-                    "href": "/system/auth.htm"
+                    "title": "模型迁移",
+                    "href": "/system/migrations.htm"
                 }
             ]
         }

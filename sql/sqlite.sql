@@ -136,6 +136,23 @@ driver varchar(32) not null,
 param_name varchar(128) not null
 );
 
+create table if not exists m_snippets (
+id int not null primary key,
+seller_id int not null,
+content text not null,
+updated_on datetime not null,
+creator_id int not null,
+created_on datetime not null
+);
+
+create table if not exists m_migrations (
+id int not null primary key,
+seller_id int not null,
+is_exporting tinyint not null default 0,
+creator_id int not null,
+created_on datetime not null
+);
+
 insert into m_driver_param_definitions values (1, 'Hive2', 'fs');
 insert into m_driver_param_definitions values (2, 'Hive2', 'root');
 insert into m_driver_param_definitions values (3, 'Hive2', 'queue');

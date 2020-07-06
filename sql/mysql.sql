@@ -162,6 +162,25 @@ primary key(id),
 unique key(driver, param_name)
 );
 
+create table if not exists m_snippets (
+id int not null auto_increment,
+seller_id int not null,
+content text not null,
+updated_on datetime not null,
+creator_id int not null,
+created_on datetime not null,
+primary key(id)
+);
+
+create table if not exists m_migrations (
+id int not null auto_increment,
+seller_id int not null,
+is_exporting tinyint not null default 0,
+creator_id int not null,
+created_on datetime not null,
+primary key(id)
+);
+
 insert into m_driver_param_definitions values (1, 'hive2', 'fs');
 insert into m_driver_param_definitions values (2, 'hive2', 'root');
 insert into m_driver_param_definitions values (3, 'hive2', 'queue');
