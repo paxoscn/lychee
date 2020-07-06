@@ -5,4 +5,5 @@ import java.util.List;
 public class DAG {
     public List<Job> jobs;
     public List<JobDependency> deps;
+    public List<JobInstance> instances;
 }

@@ -706,6 +706,8 @@ insert into m_jobs values (8, 1003, 'temp_refundproducts', 1, 0, 1, '2020-01-01 
 insert into m_jobs values (9, 1003, 'intermediate_order_items_facts_d', 1, 0, 1, '2020-01-01 00:00:00.000', 0);
 insert into m_jobs values (10, 1003, 'tag_purchase_item_particles_d', 1, 0, 1, '2020-01-01 00:00:00.000', 0);
 
+delete from m_job_dependencies;
+
 insert into m_job_dependencies values (1, 1003, 3, 1, 1, '2020-01-01 00:00:00.000', 0);
 insert into m_job_dependencies values (2, 1003, 3, 2, 1, '2020-01-01 00:00:00.000', 0);
 insert into m_job_dependencies values (3, 1003, 4, 3, 1, '2020-01-01 00:00:00.000', 0);
@@ -716,3 +718,12 @@ insert into m_job_dependencies values (7, 1003, 8, 2, 1, '2020-01-01 00:00:00.00
 insert into m_job_dependencies values (8, 1003, 9, 4, 1, '2020-01-01 00:00:00.000', 0);
 insert into m_job_dependencies values (9, 1003, 9, 8, 1, '2020-01-01 00:00:00.000', 0);
 insert into m_job_dependencies values (10, 1003, 10, 9, 1, '2020-01-01 00:00:00.000', 0);
+
+delete from m_batches;
+
+insert into m_batches values (1, 1003, '2020-01-01 00:00:00.000', 'successful', 0, 1, '2020-01-01 00:00:00.000', 0);
+
+delete from m_job_instances;
+
+insert into m_job_instances values (1, 1, 2, '2020-01-01 00:00:00.000', 'successful', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_job_instances values (2, 1, 3, '2020-01-01 00:00:00.000', 'failed', 1, '2020-01-01 00:00:00.000', 0);

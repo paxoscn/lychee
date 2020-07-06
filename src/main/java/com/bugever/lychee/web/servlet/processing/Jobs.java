@@ -5,6 +5,7 @@ import com.bugever.lychee.domain.DAG;
 import com.bugever.lychee.domain.Job;
 import com.bugever.lychee.domain.JobDependency;
 import com.bugever.lychee.web.servlet.ServletHandler;
+import com.bugever.visa.CurrentUser;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,17 +20,19 @@ public class Jobs extends HttpServlet {
 
     protected void doPost(HttpServletRequest request,
                           HttpServletResponse response) {
-        ServletHandler.handle(request, response, (currentUser) -> {
-            DAG dag = new DAG();
-            dag.jobs = Database.list(Job.class,
-                    "select id, name, sql_job_id, syn_job_id, creator_id, created_on" +
-                    " from m_jobs where seller_id = ? and deleted = 0",
-                    currentUser.attributes.get(TOKEN_ATTR_SELLER));
-            dag.deps = Database.list(JobDependency.class,
-                    "select id, job_id, depended_job_id, creator_id, created_on" +
-                    " from m_job_dependencies where seller_id = ? and deleted = 0",
-                    currentUser.attributes.get(TOKEN_ATTR_SELLER));
-            return dag;
-        });
+        ServletHandler.handle(request, response, (currentUser) -> dag(currentUser));
+    }
+
+    static DAG dag(CurrentUser currentUser) throws Exception {
+        DAG dag = new DAG();
+        dag.jobs = Database.list(Job.class,
+                "select id, name, sql_job_id, syn_job_id, creator_id, created_on" +
+                        " from m_jobs where seller_id = ? and deleted = 0",
+                currentUser.attributes.get(TOKEN_ATTR_SELLER));
+        dag.deps = Database.list(JobDependency.class,
+                "select id, job_id, depended_job_id, creator_id, created_on" +
+                        " from m_job_dependencies where seller_id = ? and deleted = 0",
+                currentUser.attributes.get(TOKEN_ATTR_SELLER));
+        return dag;
     }
 }

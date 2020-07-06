@@ -195,6 +195,30 @@ deleted int not null,
 primary key(id)
 );
 
+create table if not exists m_batches (
+id int not null auto_increment,
+seller_id int not null,
+business_time datetime not null,
+state varchar(32) not null comment 'init, running, successful, failed, cancelled',
+is_adhoc tinyint not null default 0,
+creator_id int not null,
+created_on datetime not null,
+deleted int not null,
+primary key(id)
+);
+
+create table if not exists m_job_instances (
+id int not null auto_increment,
+batch_id int not null,
+job_id int not null,
+run_on datetime not null,
+state varchar(32) not null comment 'init, waiting, running, successful, failed, cancelled',
+creator_id int not null,
+created_on datetime not null,
+deleted int not null,
+primary key(id)
+);
+
 create table if not exists m_migrations (
 id int not null auto_increment,
 seller_id int not null,

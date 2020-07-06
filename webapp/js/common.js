@@ -78,7 +78,7 @@ function initMenu() {
                 },
                 {
                     "title": "任务实例",
-                    "href": "/processing/instances.htm"
+                    "href": "/processing/batches.htm"
                 }
             ]
         },
