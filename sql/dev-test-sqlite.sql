@@ -692,3 +692,27 @@ insert into m_data_source_params values (20, 4, 'port', '9900', 1, '2020-01-01 0
 insert into m_data_source_params values (21, 4, 'user', 'sa', 1, '2020-01-01 00:00:00.000', 0);
 insert into m_data_source_params values (22, 4, 'password', '123456', 1, '2020-01-01 00:00:00.000', 0);
 insert into m_data_source_params values (23, 4, 'database', 'cdp', 1, '2020-01-01 00:00:00.000', 0);
+
+delete from m_jobs;
+
+insert into m_jobs values (1, 1003, 'dw_crm_orders_fact_d', 1, 0, 1, '2020-01-01 00:00:00.000', 0);
+insert into m_jobs values (2, 1003, 'dw_crm_refunds_fact_d', 1, 0, 1, '2020-01-01 00:00:00.000', 0);
+insert into m_jobs values (3, 1003, 'temp_orderreturn', 1, 0, 1, '2020-01-01 00:00:00.000', 0);
+insert into m_jobs values (4, 1003, 'intermediate_order_facts_d', 1, 0, 1, '2020-01-01 00:00:00.000', 0);
+insert into m_jobs values (5, 1003, 'tag_mbr_frequenttime_d', 1, 0, 1, '2020-01-01 00:00:00.000', 0);
+insert into m_jobs values (6, 1003, 'tag_mbr_firstbuy_d', 1, 0, 1, '2020-01-01 00:00:00.000', 0);
+insert into m_jobs values (7, 1003, 'tag_mbr_province_d', 1, 0, 1, '2020-01-01 00:00:00.000', 0);
+insert into m_jobs values (8, 1003, 'temp_refundproducts', 1, 0, 1, '2020-01-01 00:00:00.000', 0);
+insert into m_jobs values (9, 1003, 'intermediate_order_items_facts_d', 1, 0, 1, '2020-01-01 00:00:00.000', 0);
+insert into m_jobs values (10, 1003, 'tag_purchase_item_particles_d', 1, 0, 1, '2020-01-01 00:00:00.000', 0);
+
+insert into m_job_dependencies values (1, 1003, 3, 1, 1, '2020-01-01 00:00:00.000', 0);
+insert into m_job_dependencies values (2, 1003, 3, 2, 1, '2020-01-01 00:00:00.000', 0);
+insert into m_job_dependencies values (3, 1003, 4, 3, 1, '2020-01-01 00:00:00.000', 0);
+insert into m_job_dependencies values (4, 1003, 5, 4, 1, '2020-01-01 00:00:00.000', 0);
+insert into m_job_dependencies values (5, 1003, 6, 4, 1, '2020-01-01 00:00:00.000', 0);
+insert into m_job_dependencies values (6, 1003, 7, 4, 1, '2020-01-01 00:00:00.000', 0);
+insert into m_job_dependencies values (7, 1003, 8, 2, 1, '2020-01-01 00:00:00.000', 0);
+insert into m_job_dependencies values (8, 1003, 9, 4, 1, '2020-01-01 00:00:00.000', 0);
+insert into m_job_dependencies values (9, 1003, 9, 8, 1, '2020-01-01 00:00:00.000', 0);
+insert into m_job_dependencies values (10, 1003, 10, 9, 1, '2020-01-01 00:00:00.000', 0);

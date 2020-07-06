@@ -145,6 +145,27 @@ creator_id int not null,
 created_on datetime not null
 );
 
+create table if not exists m_jobs (
+id int not null primary key,
+seller_id int not null,
+name varchar(128) not null,
+sql_job_id int not null default 0,
+syn_job_id int not null default 0,
+creator_id int not null,
+created_on datetime not null,
+deleted int not null
+);
+
+create table if not exists m_job_dependencies (
+id int not null primary key,
+seller_id int not null,
+job_id int not null,
+depended_job_id int not null,
+creator_id int not null,
+created_on datetime not null,
+deleted int not null
+);
+
 create table if not exists m_migrations (
 id int not null primary key,
 seller_id int not null,

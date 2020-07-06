@@ -74,7 +74,7 @@ function initMenu() {
                 },
                 {
                     "title": "任务安排",
-                    "href": "/processing/dag.htm"
+                    "href": "/processing/jobs.htm"
                 },
                 {
                     "title": "任务实例",

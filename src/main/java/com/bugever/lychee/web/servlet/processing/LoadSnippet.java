@@ -14,7 +14,7 @@ import java.util.List;
 import static com.bugever.lychee.web.servlet.Helper.TOKEN_ATTR_SELLER;
 import static com.bugever.lychee.web.servlet.Helper.TOKEN_ATTR_USER;
 
-// curl 'http://127.0.0.1:8080/api/processing/load-snippet' -d '{ "id": 0 }'
+// curl 'http://127.0.0.1:8080/api/processing/load-snippet' -d '{}'
 @WebServlet("/api/processing/load-snippet")
 public class LoadSnippet extends HttpServlet {
 
