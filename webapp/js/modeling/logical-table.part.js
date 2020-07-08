@@ -29,7 +29,7 @@ function trColumn(tableId, item, index) {
         cols.push("")
         cols.push("")
     }
-    cols.push("<button onclick='removeColumn(event)'>移除</button>")
+    cols.push("<button onclick='removeColumn(event)'>移除</button><button onclick='moveColumn(event)'>移动</button>")
     var newTr = tr($(tableId), item, cols)
 
     renderRef(newTr)
@@ -42,9 +42,27 @@ function addDimensionColumn() {
 }
 
 function addMetricsColumn() {
-    var column = { 'id': 0, 'name': '', 'cn_name': '', 'remarks': '', 'dimension_id': 0, 'metrics_id': 0, 'is_indexed': 0, 'ref_name': '', 'identity_name': '' }
+    var column = { 'id': 0, 'name': '', 'cn_name': '', 'remarks': '', 'dimension_id': -1, 'metrics_id': 0, 'is_indexed': 0, 'ref_name': '', 'identity_name': '' }
     logicalTable.metrics_columns.push(column)
-    trColumn("metrics-table", { 'id': 0, 'name': '', 'cn_name': '', 'remarks': '', 'dimension_id': 0, 'metrics_id': 0, 'is_indexed': 0, 'ref_name': '', 'identity_name': '' }, $("metrics-table").getElementsByTagName("TR").length)
+    trColumn("metrics-table", column, $("metrics-table").getElementsByTagName("TR").length)
+}
+
+function moveColumn(e) {
+    var tr_ = getTr(e)
+    var column = tr_.obj
+    var isMetrics = column.dimension_id < 0
+
+    removeColumn(e)
+
+    if (isMetrics) {
+        column = { 'id': column.id, 'name': column.name, 'cn_name': column.cn_name, 'remarks': column.remarks, 'dimension_id': 0, 'metrics_id': 0, 'is_indexed': 0, 'identity_id': 0, 'data_type': 'string', 'desensitization_method': '', 'ref_name': '', 'identity_name': '' }
+        logicalTable.dimension_columns.push(column)
+        trColumn("dimension-table", column, $("dimension-table").getElementsByTagName("TR").length)
+    } else {
+        column = { 'id': column.id, 'name': column.name, 'cn_name': column.cn_name, 'remarks': column.remarks, 'dimension_id': -1, 'metrics_id': 0, 'is_indexed': 0, 'ref_name': '', 'identity_name': '' }
+        logicalTable.metrics_columns.push(column)
+        trColumn("metrics-table", column, $("metrics-table").getElementsByTagName("TR").length)
+    }
 }
 
 function removeColumn(e) {
@@ -73,7 +91,7 @@ function removeColumn(e) {
 function unbindRef(e) {
     var tr_ = getTr(e)
     var column = tr_.obj
-    var isMetrics = typeof column.identity_id == "undefined"
+    var isMetrics = column.dimension_id < 0
     if (isMetrics) {
         column.metrics_id = 0
     } else {
@@ -86,7 +104,7 @@ function unbindRef(e) {
 
 function renderRef(newTr) {
     var column = newTr.obj
-    var isMetrics = typeof column.identity_id == "undefined"
+    var isMetrics = column.dimension_id < 0
     if (isMetrics) {
         if (column.metrics_id > 0) {
             newTr.getElementsByTagName("TD")[3].innerHTML = column.ref_name + "<button onclick='bindRef(event)'>绑定</button><button onclick='unbindRef(event)'>解绑</button>"
@@ -160,7 +178,7 @@ function selectDesensitizationMethod(e) {
 function bindRef(e) {
     var tr_ = getTr(e)
     var column = tr_.obj
-    var isMetrics = typeof column.identity_id == "undefined"
+    var isMetrics = column.dimension_id < 0
     if (isMetrics) {
         ajax('POST', '/api/modeling/metrics-list', {}, function(dimensions) {
             showItemSelector(e.target, $("metrics_selector"), false, dimensions, function(item) {

@@ -69,6 +69,9 @@ public class ParseDdlAndInitLogicalTables extends HttpServlet {
                     continue;
                 }
 
+                // Replacing like 'decimal(20,4)'.
+                query = query.replaceAll("\\(\\d+,\\d+\\)", "");
+
                 com.bugever.lychee.domain.LogicalTable table = new com.bugever.lychee.domain.LogicalTable();
                 tables.add(table);
                 table.query = query.replace(",", ",\n");

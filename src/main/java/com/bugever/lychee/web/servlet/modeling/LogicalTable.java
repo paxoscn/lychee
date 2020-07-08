@@ -43,6 +43,7 @@ public class LogicalTable extends HttpServlet {
                             logicalTable.id);
                     for (LogicalTableColumn column : columns) {
                         if (column.metrics_id > 0) {
+                            column.dimension_id = -1;
                             logicalTable.metrics_columns.add(column);
                         } else {
                             logicalTable.dimension_columns.add(column);
