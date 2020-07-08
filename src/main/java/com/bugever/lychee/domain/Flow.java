@@ -2,12 +2,10 @@ package com.bugever.lychee.domain;
 
 import java.util.Date;
 
-public class Batch {
+public class Flow {
     public int id;
-    public int flow_id;
-    public Date business_time;
-    public String state;
-    public int is_adhoc;
+    public String name;
+    public String crontabs;
     public int creator_id;
     public Date created_on;
 }

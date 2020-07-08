@@ -172,9 +172,21 @@ created_on datetime not null,
 primary key(id)
 );
 
+create table if not exists m_flows (
+id int not null auto_increment,
+seller_id int not null,
+name varchar(128) not null,
+crontabs varchar(256) not null default '' comment 'Splited by newline.',
+creator_id int not null,
+created_on datetime not null,
+deleted int not null,
+primary key(id)
+);
+
 create table if not exists m_jobs (
 id int not null auto_increment,
 seller_id int not null,
+flow_id int not null,
 name varchar(128) not null,
 sql_job_id int not null default 0,
 syn_job_id int not null default 0,
@@ -198,9 +210,21 @@ primary key(id)
 create table if not exists m_batches (
 id int not null auto_increment,
 seller_id int not null,
+flow_id int not null,
 business_time datetime not null,
 state varchar(32) not null comment 'init, running, successful, failed, cancelled',
 is_adhoc tinyint not null default 0,
+creator_id int not null,
+created_on datetime not null,
+deleted int not null,
+primary key(id)
+);
+
+create table if not exists m_batch_params (
+id int not null auto_increment,
+batch_id int not null,
+param_name varchar(128) not null,
+param_value varchar(256) not null,
 creator_id int not null,
 created_on datetime not null,
 deleted int not null,

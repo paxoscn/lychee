@@ -21,15 +21,27 @@ public class Batch extends HttpServlet {
 
     protected void doPost(HttpServletRequest request,
                           HttpServletResponse response) {
-        ServletHandler.handle(request, response, Helper.IdRequest.class, (currentUser, input) -> {
-            DAG dag = Jobs.dag(currentUser);
+        ServletHandler.handle(request, response, BatchRequest.class, (currentUser, input) -> {
+            DAG dag;
             if (input.id > 0) {
+                com.bugever.lychee.domain.Batch batch = Database.list(com.bugever.lychee.domain.Batch.class,
+                        "select flow_id from m_batches where id = ? and seller_id = ? and deleted = 0",
+                        input.id, currentUser.attributes.get(TOKEN_ATTR_SELLER))
+                        .iterator().next();
+                dag = Jobs.dag(currentUser, batch.flow_id);
                 dag.instances = Database.list(JobInstance.class,
                         "select id, job_id, run_on, state" +
                                 " from m_job_instances where batch_id = ? and deleted = 0",
                         input.id);
+            } else {
+                dag = Jobs.dag(currentUser, input.flow_id);
             }
             return dag;
         });
+    }
+
+    public static class BatchRequest {
+        public int id;
+        public int flow_id;
     }
 }

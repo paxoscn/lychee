@@ -80,7 +80,7 @@ function initMenu() {
                 },
                 {
                     "title": "任务安排",
-                    "href": "/processing/jobs.htm"
+                    "href": "/processing/flows.htm"
                 },
                 {
                     "title": "任务实例",
