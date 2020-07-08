@@ -1,0 +1,10 @@
+#ddl {
+    width: 700px;
+    height: 200px;
+}
+#tables {
+    display: none;
+}
+#query {
+    height: 400px;
+}

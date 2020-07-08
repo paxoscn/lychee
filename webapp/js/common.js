@@ -23,6 +23,12 @@ var ajax = function(method, path, body, callback) {
             localStorage.setItem("token", token)
         }
 
+        if (this.getResponseHeader("Content-Type").indexOf("application/json") < 0) {
+            // HTML
+            callback(req.responseText);
+            return;
+        }
+
         var res;
         eval("res = " + req.responseText);
         if (res.code != 0) {
@@ -145,6 +151,14 @@ function tr(table, obj, cols) {
     return tr
 }
 
+function getTr(e) {
+    var el = e.target
+    while (typeof el.obj == "undefined") {
+        el = el.parentNode
+    }
+    return el
+}
+
 var lastSelectorEl = null
 
 function showItemSelector(el, selectorEl, multiple, items, onCols, onSelect) {
@@ -208,9 +222,19 @@ function onItemSelected(e) {
         el = el.parentNode
     }
 
-    el.obj.callback(el.obj.table)
+    el.obj.callback(el.obj.item)
 
     lastSelectorEl.style.display = "none"
+}
+
+var partInput = null
+
+function loadPart(container, path, input) {
+    ajax('GET', path, null, function(res) {
+        partInput = input
+        container.innerHTML = res
+        onPartLoad()
+    })
 }
 
 window.addEventListener("load", function() {

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="/css/common.css">
+        <link rel="stylesheet" type="text/css" href="/css/modeling/physical-tables-parsing-ddl.css">
+        <script type="text/javascript" src="/js/common.js"></script>
+        <script type="text/javascript" src="/js/modeling/logical-table.part.js"></script>
+        <script type="text/javascript" src="/js/modeling/data-source-selecting.js"></script>
+        <script type="text/javascript" src="/js/modeling/physical-tables-parsing-ddl.js"></script>
+    </head>
+    <body>
+        <div>
+            <div></div>
+            <div id='menu'></div>
+            <div id='content'>
+                <div>
+                    <table>
+                        <tr>
+                            <th>数据源*</th>
+                            <td>
+                                <input type='hidden' id='data_source_id' />
+                                <span id='data_source_name'></span>
+                                <button id='data_source_selecting_button' onclick='selectDataSource();'>选择数据源</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>DDL</th>
+                            <td>
+                                <div>
+                                    <textarea id='ddl'></textarea>
+                                </div>
+                                <div>
+                                    <button onclick='confirmAndGenerateLogicalTables();'>确定并生成逻辑表</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr id="tables">
+                            <th>逻辑表定义</th>
+                            <td>
+                                <div>
+                                    共解析出<span id="table_count">0</span>张物理表，请在下方修改逻辑表定义：
+                                </div>
+                                <div>
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <div>原始DDL：</div>
+                                                <div>
+                                                    <textarea id='query'></textarea>
+                                                </div>
+                                            </td>
+                                            <td id="logical_table"></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div>
+                                    <button id="left_table" onclick="tableIndex--; renderTable()"></button>
+                                    <button id="right_table" onclick="tableIndex++; renderTable()"></button>
+                                    <button onclick="saveTables()">保存全部</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -32,7 +32,7 @@ ul a {
     color: #0f0;
     text-decoration: none;
 }
-input[type=text] {
+input:not([type]), input[type="text"] {
     background-color: grey;
     border: 0px solid black;
     border-bottom: 1px solid white;
@@ -51,6 +51,9 @@ th {
     background-color: #77f;
     margin: 0px;
     padding: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    vertical-align: top;
 }
 td {
     margin: 0px;
@@ -61,7 +64,6 @@ td {
 }
 .banner {
     background-image: url(/img/logo.png);
-    background-size: 100px;
     background-repeat: no-repeat;
     height: 56px;
 }

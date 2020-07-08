@@ -8,9 +8,11 @@ public class Dimension {
     public String cn_name;
     public String remarks;
     public int identity_id;
-    public String identity_name;
     public String data_type;
     public String desensitization_method;
     public int creator_id;
     public Date created_on;
+
+    // 传值时冗余
+    public String identity_name = "";
 }

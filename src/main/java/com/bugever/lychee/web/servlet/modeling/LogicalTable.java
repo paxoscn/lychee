@@ -32,8 +32,8 @@ public class LogicalTable extends HttpServlet {
                 List<com.bugever.lychee.domain.LogicalTable> list = Database.list(com.bugever.lychee.domain.LogicalTable.class, query.sql(), query.params());
                 if (!list.isEmpty()) {
                     logicalTable = list.iterator().next();
-                    logicalTable.columns = Database.list(LogicalTableColumn.class,
-                            "select c.id, c.name, c.cn_name, c.remarks, c.dimension_id, c.metrics_id, c.is_indexed," +
+                    List<LogicalTableColumn> columns = Database.list(LogicalTableColumn.class,
+                            "select c.id, c.name, c.cn_name, case when c.metrics_id > 0 then m.name else d.name end ref_name, c.remarks, c.dimension_id, c.metrics_id, c.is_indexed," +
                                     " d.identity_id, d.data_type, d.desensitization_method" +
                                     " from m_logical_table_columns c" +
                                     " left join m_dimensions d on c.dimension_id = d.id" +
@@ -41,6 +41,13 @@ public class LogicalTable extends HttpServlet {
                                     " where c.table_id = ? and c.deleted = 0" +
                                     " order by c.name",
                             logicalTable.id);
+                    for (LogicalTableColumn column : columns) {
+                        if (column.metrics_id > 0) {
+                            logicalTable.metrics_columns.add(column);
+                        } else {
+                            logicalTable.dimension_columns.add(column);
+                        }
+                    }
                 }
             }
             return logicalTable;

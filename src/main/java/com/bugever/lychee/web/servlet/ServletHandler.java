@@ -34,7 +34,7 @@ public class ServletHandler {
 
             Object body = apiCallable.call(currentUser, input);
 
-            String json = "{ \"code\": 0, \"body\": " + objectMapper.writeValueAsString(body) + " }";
+            String json = "{ \"code\": 0, \"body\": " + (body == null ? "{}" : objectMapper.writeValueAsString(body)) + " }";
             response.getOutputStream().write(json.getBytes());
         } catch (Exception e) {
             log.warn("Servlet handling failed", e);

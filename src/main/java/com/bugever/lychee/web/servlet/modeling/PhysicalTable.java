@@ -20,7 +20,7 @@ public class PhysicalTable extends HttpServlet {
     protected void doPost(HttpServletRequest request,
                           HttpServletResponse response) {
         ServletHandler.handle(request, response, Helper.IdRequest.class, (currentUser, input) -> {
-            com.bugever.lychee.domain.PhysicalTable dimension = new com.bugever.lychee.domain.PhysicalTable();
+            com.bugever.lychee.domain.PhysicalTable table = new com.bugever.lychee.domain.PhysicalTable();
             if (input.id > 0) {
                 ParameterizedQuery query = new ParameterizedQuery(
                         "select pt.id, pt.logical_table_id, lt.name logical_table_name," +
@@ -34,10 +34,10 @@ public class PhysicalTable extends HttpServlet {
                 );
                 List<com.bugever.lychee.domain.PhysicalTable> list = Database.list(com.bugever.lychee.domain.PhysicalTable.class, query.sql(), query.params());
                 if (!list.isEmpty()) {
-                    dimension = list.iterator().next();
+                    table = list.iterator().next();
                 }
             }
-            return dimension;
+            return table;
         });
     }
 }

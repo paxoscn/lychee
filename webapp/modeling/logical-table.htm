@@ -4,6 +4,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="/css/common.css">
         <script type="text/javascript" src="/js/common.js"></script>
+        <script type="text/javascript" src="/js/modeling/logical-table.part.js"></script>
         <script type="text/javascript" src="/js/modeling/logical-table.js"></script>
     </head>
     <body>
@@ -15,102 +16,8 @@
                     <button onclick='saveLogicalTable();'>保存</button>
                     <button onclick='deleteLogicalTable();'>删除</button>
                 </div>
-                <div>
-                    <input type='hidden' id='id' />
-                    <table>
-                        <tr>
-                            <th>层级</th>
-                            <td>
-                                <label><input id='layer_ODS' type='radio' name='layer' value='ODS' checked />ODS</label>
-                                <label><input id='layer_DWD' type='radio' name='layer' value='DWD' />DWD</label>
-                                <label><input id='layer_DWM' type='radio' name='layer' value='DWM' />DWM</label>
-                                <label><input id='layer_DWS' type='radio' name='layer' value='DWS' />DWS</label>
-                                <label><input id='layer_ADS' type='radio' name='layer' value='ADS' />ADS</label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>名称*</th>
-                            <td><input id='name' /></td>
-                        </tr>
-                        <tr>
-                            <th>中文名称</th>
-                            <td><input id='cn_name' /></td>
-                        </tr>
-                        <tr>
-                            <th>描述</th>
-                            <td><input id='remarks' /></td>
-                        </tr>
-                        <tr>
-                            <th>是否包含OneID</th>
-                            <td>
-                                <label><input id='has_oneid_1' type='radio' name='has_oneid' value='1' checked />是</label>
-                                <label><input id='has_oneid_0' type='radio' name='has_oneid' value='0' />否</label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>角色</th>
-                            <td>
-                                <label><input id='is_fact_0' type='radio' name='is_fact' value='0' checked />维度表</label>
-                                <label><input id='is_fact_1' type='radio' name='is_fact' value='1' />事实表</label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>维度</th>
-                            <td>
-                                <button id='dimension_selecting_button' onclick='selectDimension();'>选择维度</button>
-                                <table id='dimension-table'>
-                                    <tr>
-                                        <th>是否索引</th>
-                                        <th>维度名称</th>
-                                        <th>维度中文名称</th>
-                                        <th>描述</th>
-                                        <th>关联身份标识</th>
-                                        <th>数据类型</th>
-                                        <th>脱敏方法</th>
-                                        <th>操作</th>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>指标</th>
-                            <td>
-                                <button id='metrics_selecting_button' onclick='selectMetrics();'>选择指标</button>
-                                <table id='metrics-table'>
-                                    <tr>
-                                        <th>是否索引</th>
-                                        <th>维度名称</th>
-                                        <th>维度中文名称</th>
-                                        <th>描述</th>
-                                        <th>操作</th>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
+                <div id="logical_table"></div>
             </div>
-        </div>
-        <div id='dimension_selector' class="item_selector">
-            <table>
-                <tr>
-                    <th>维度名称</th>
-                    <th>维度中文名称</th>
-                    <th>描述</th>
-                    <th>关联身份标识</th>
-                    <th>数据类型</th>
-                    <th>脱敏方法</th>
-                </tr>
-            </table>
-        </div>
-        <div id='metrics_selector' class="item_selector">
-            <table>
-                <tr>
-                    <th>维度名称</th>
-                    <th>维度中文名称</th>
-                    <th>描述</th>
-                </tr>
-            </table>
         </div>
     </body>
 </html>

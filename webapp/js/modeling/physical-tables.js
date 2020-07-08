@@ -11,6 +11,10 @@ function generatePhysicalTables() {
     location = "/modeling/physical-tables-generation.htm"
 }
 
+function parsePhysicalTables() {
+    location = "/modeling/physical-tables-parsing-ddl.htm"
+}
+
 window.addEventListener("load", function() {
     ajax('POST', '/api/modeling/physical-tables', {}, function(res) {
         res.forEach(function(item) {

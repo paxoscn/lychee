@@ -1,0 +1,101 @@
+<input type='hidden' id='id' />
+<table>
+    <tr>
+        <th>层级</th>
+        <td>
+            <label><input id='layer_ODS' type='radio' name='layer' value='ODS' checked onchange="onLayerChanged(event)" />ODS</label>
+            <label><input id='layer_DWD' type='radio' name='layer' value='DWD' onchange="onLayerChanged(event)" />DWD</label>
+            <label><input id='layer_DWM' type='radio' name='layer' value='DWM' onchange="onLayerChanged(event)" />DWM</label>
+            <label><input id='layer_DWS' type='radio' name='layer' value='DWS' onchange="onLayerChanged(event)" />DWS</label>
+            <label><input id='layer_ADS' type='radio' name='layer' value='ADS' onchange="onLayerChanged(event)" />ADS</label>
+        </td>
+    </tr>
+    <tr>
+        <th>名称*</th>
+        <td><input id='name' onkeyup="onNameChanged(event)" /></td>
+    </tr>
+    <tr>
+        <th>中文名称</th>
+        <td><input id='cn_name' onkeyup="onCnNameChanged(event)" /></td>
+    </tr>
+    <tr>
+        <th>描述</th>
+        <td><input id='remarks' onkeyup="onRemarksChanged(event)" /></td>
+    </tr>
+    <tr>
+        <th>是否包含OneID</th>
+        <td>
+            <label><input id='has_oneid_1' type='radio' name='has_oneid' value='1' checked onchange="onHasOneidChanged(event)" />是</label>
+            <label><input id='has_oneid_0' type='radio' name='has_oneid' value='0' onchange="onHasOneidChanged(event)" />否</label>
+        </td>
+    </tr>
+    <tr>
+        <th>角色</th>
+        <td>
+            <label><input id='is_fact_0' type='radio' name='is_fact' value='0' checked onchange="onIsFactChanged(event)" />维度表</label>
+            <label><input id='is_fact_1' type='radio' name='is_fact' value='1' onchange="onIsFactChanged(event)" />事实表</label>
+        </td>
+    </tr>
+    <tr>
+        <th>维度</th>
+        <td>
+            <button onclick='addDimensionColumn();'>创建维度</button>
+            <button id='dimension_selecting_button' onclick='selectMultipleDimensions();'>选择维度</button>
+            <table id='dimension-table'>
+                <tr>
+                    <th>是否索引</th>
+                    <th>名称</th>
+                    <th>中文名称</th>
+                    <th>引用维度</th>
+                    <th>关联身份标识</th>
+                    <th>数据类型</th>
+                    <th>脱敏方法</th>
+                    <th>操作</th>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <th>指标</th>
+        <td>
+            <button onclick='addMetricsColumn();'>创建指标</button>
+            <button id='metrics_selecting_button' onclick='selectMultipleMetrics();'>选择指标</button>
+            <table id='metrics-table'>
+                <tr>
+                    <th>是否索引</th>
+                    <th>名称</th>
+                    <th>中文名称</th>
+                    <th>引用指标</th>
+                    <th>操作</th>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+<div id='dimension_selector' class="item_selector">
+    <table>
+        <tr>
+            <th>名称</th>
+            <th>中文名称</th>
+            <th>关联身份标识</th>
+            <th>数据类型</th>
+            <th>脱敏方法</th>
+        </tr>
+    </table>
+</div>
+<div id='metrics_selector' class="item_selector">
+    <table>
+        <tr>
+            <th>名称</th>
+            <th>中文名称</th>
+        </tr>
+    </table>
+</div>
+<div id='identity_selector' class="item_selector">
+    <table>
+        <tr>
+            <th>名称</th>
+            <th>中文名称</th>
+        </tr>
+    </table>
+</div>
