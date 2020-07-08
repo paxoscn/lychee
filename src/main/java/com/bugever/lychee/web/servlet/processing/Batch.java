@@ -21,7 +21,7 @@ public class Batch extends HttpServlet {
 
     protected void doPost(HttpServletRequest request,
                           HttpServletResponse response) {
-        ServletHandler.handle(request, response, BatchRequest.class, (currentUser, input) -> {
+        ServletHandler.handle(request, response, Job.FlowChildRequest.class, (currentUser, input) -> {
             DAG dag;
             if (input.id > 0) {
                 com.bugever.lychee.domain.Batch batch = Database.list(com.bugever.lychee.domain.Batch.class,
@@ -38,10 +38,5 @@ public class Batch extends HttpServlet {
             }
             return dag;
         });
-    }
-
-    public static class BatchRequest {
-        public int id;
-        public int flow_id;
     }
 }

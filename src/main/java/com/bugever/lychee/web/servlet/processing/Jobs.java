@@ -27,7 +27,7 @@ public class Jobs extends HttpServlet {
     static DAG dag(CurrentUser currentUser, int flowId) throws Exception {
         DAG dag = new DAG();
         dag.jobs = Database.list(Job.class,
-                "select id, name, sql_job_id, syn_job_id, creator_id, created_on" +
+                "select id, name, creator_id, created_on" +
                         " from m_jobs where flow_id = ? and seller_id = ? and deleted = 0",
                 flowId, currentUser.attributes.get(TOKEN_ATTR_SELLER));
         dag.deps = Database.list(JobDependency.class,

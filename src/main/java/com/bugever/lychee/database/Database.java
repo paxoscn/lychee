@@ -3,7 +3,6 @@ package com.bugever.lychee.database;
 import com.bugever.lychee.database.engine.Engine;
 import com.bugever.lychee.database.engine.MySQLEngine;
 import com.bugever.lychee.database.engine.SQLiteEngine;
-import com.bugever.visa.CurrentUser;
 import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,13 +11,8 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.sql.*;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.*;
 import java.util.Date;
-
-import static com.bugever.lychee.web.servlet.Helper.TOKEN_ATTR_SELLER;
-import static com.bugever.lychee.web.servlet.Helper.TOKEN_ATTR_USER;
+import java.util.*;
 
 public class Database {
 
@@ -135,6 +129,8 @@ public class Database {
         List<Object> columnValues = new LinkedList<>();
         for (Field field : entity.getClass().getFields()) {
             if (field.getName().equals("id")
+                    || field.getName().equals("creator_id")
+                    || field.getName().equals("created_on")
                     || Collection.class.isAssignableFrom(field.getType())
                     || excludedFields.contains(field.getName())) {
                 continue;

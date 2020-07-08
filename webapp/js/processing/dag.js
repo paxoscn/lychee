@@ -13,7 +13,13 @@ function renderSVG(dag) {
     for (var i = 0; i < dag.deps.length; ++i) {
         var dep = dag.deps[i]
         var job = jobMap[dep.job_id + ""]
+        if (typeof job == "undefined") {
+            continue
+        }
         var dependedJob = jobMap[dep.depended_job_id + ""]
+        if (typeof dependedJob == "undefined") {
+            continue
+        }
         job.deps.push(dependedJob)
     }
 
@@ -22,6 +28,7 @@ function renderSVG(dag) {
         for (var i = 0; i < dag.instances.length; ++i) {
             var instance = dag.instances[i]
             var job = jobMap[instance.job_id + ""]
+            job.instance_id = instance.id
             job.state = instance.state
         }
     }
@@ -81,14 +88,25 @@ function renderJob(job) {
     var checkbox = document.createElement("INPUT")
     checkbox.type = "checkbox"
     checkbox.value = job.id
-    if (hasInstances && typeof job.state == "undefined") {
-        checkbox.disabled = true
-    }
     node.appendChild(checkbox)
 
-    var name = document.createElement("SPAN")
+    var name = document.createElement("BUTTON")
+    name.obj = job
+    name.onclick = editJob
     name.innerHTML = job.name
     node.appendChild(name)
+
+    if (hasInstances) {
+        if (typeof job.state == "undefined") {
+            checkbox.disabled = true
+        } else {
+            var log = document.createElement("BUTTON")
+            log.obj = job
+            log.onclick = viewLog
+            log.innerHTML = "日志"
+            node.appendChild(log)
+        }
+    }
 
     for (var i = 0; i < job.deps.length; ++i) {
         var dependedJob = job.deps[i]
@@ -111,4 +129,12 @@ function maxSteps(job) {
         max = Math.max(max, maxSteps(job.deps[i]) + 1)
     }
     return max
+}
+
+function editJob(e) {
+    location = "/processing/job.htm?id=" + e.target.obj.id
+}
+
+function viewLog(e) {
+    location = "/processing/log.htm?id=" + e.target.obj.instance_id
 }

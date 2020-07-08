@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="/css/common.css">
+        <script type="text/javascript" src="/js/common.js"></script>
+        <script type="text/javascript" src="/js/processing/job.js"></script>
+    </head>
+    <body>
+        <div>
+            <div></div>
+            <div id='menu'></div>
+            <div id='content'>
+                <div>
+                    <button onclick='saveJob();'>保存</button>
+                </div>
+                <div>
+                    <input type='hidden' id='id' />
+                    <input type='hidden' id='flow_id' />
+                    <table>
+                        <tr>
+                            <th>名称*</th>
+                            <td><input id='name' /></td>
+                        </tr>
+                        <tr>
+                            <th>SQL*</th>
+                            <td><textarea id='queries'></textarea></td>
+                        </tr>
+                        <tr>
+                            <th>依赖</th>
+                            <td>
+                                <button onclick='resolveDependencies();'>解析依赖</button>
+                                <button id='dependency_selecting_button' onclick='selectDependencies();'>选择依赖</button>
+                                <table id='dependency-table'>
+                                    <tr>
+                                        <th>名称</th>
+                                        <th>操作</th>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id='dependency_selector' class="item_selector">
+            <table>
+                <tr>
+                    <th>名称</th>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>

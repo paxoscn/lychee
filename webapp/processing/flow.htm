@@ -4,7 +4,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="/css/common.css">
         <script type="text/javascript" src="/js/common.js"></script>
-        <script type="text/javascript" src="/js/processing/flows.js"></script>
+        <script type="text/javascript" src="/js/processing/flow.js"></script>
     </head>
     <body>
         <div>
@@ -12,16 +12,18 @@
             <div id='menu'></div>
             <div id='content'>
                 <div>
-                    <button onclick='createFlow();'>创建任务流</button>
+                    <button onclick='saveFlow();'>保存</button>
                 </div>
                 <div>
-                    <table id='flow-table'>
+                    <input type='hidden' id='id' />
+                    <table>
                         <tr>
-                            <th>名称</th>
+                            <th>名称*</th>
+                            <td><input id='name' /></td>
+                        </tr>
+                        <tr>
                             <th>Crontabs</th>
-                            <th>创建者</th>
-                            <th>创建时间</th>
-                            <th>操作</th>
+                            <td><textarea id='crontabs'></textarea></td>
                         </tr>
                     </table>
                 </div>

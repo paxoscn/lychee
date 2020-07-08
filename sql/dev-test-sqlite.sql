@@ -699,16 +699,16 @@ insert into m_flows values (1, 1003, 'main', '', 1, '2020-01-01 00:00:00.000', 0
 
 delete from m_jobs;
 
-insert into m_jobs values (1, 1003, 1, 'dw_crm_orders_fact_d', 1, 0, 1, '2020-01-01 00:00:00.000', 0);
-insert into m_jobs values (2, 1003, 1, 'dw_crm_refunds_fact_d', 1, 0, 1, '2020-01-01 00:00:00.000', 0);
-insert into m_jobs values (3, 1003, 1, 'temp_orderreturn', 1, 0, 1, '2020-01-01 00:00:00.000', 0);
-insert into m_jobs values (4, 1003, 1, 'intermediate_order_facts_d', 1, 0, 1, '2020-01-01 00:00:00.000', 0);
-insert into m_jobs values (5, 1003, 1, 'tag_mbr_frequenttime_d', 1, 0, 1, '2020-01-01 00:00:00.000', 0);
-insert into m_jobs values (6, 1003, 1, 'tag_mbr_firstbuy_d', 1, 0, 1, '2020-01-01 00:00:00.000', 0);
-insert into m_jobs values (7, 1003, 1, 'tag_mbr_province_d', 1, 0, 1, '2020-01-01 00:00:00.000', 0);
-insert into m_jobs values (8, 1003, 1, 'temp_refundproducts', 1, 0, 1, '2020-01-01 00:00:00.000', 0);
-insert into m_jobs values (9, 1003, 1, 'intermediate_order_items_facts_d', 1, 0, 1, '2020-01-01 00:00:00.000', 0);
-insert into m_jobs values (10, 1003, 1, 'tag_purchase_item_particles_d', 1, 0, 1, '2020-01-01 00:00:00.000', 0);
+insert into m_jobs values (1, 1003, 1, 'dw_crm_orders_fact_d', '', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_jobs values (2, 1003, 1, 'dw_crm_refunds_fact_d', '', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_jobs values (3, 1003, 1, 'temp_orderreturn', '', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_jobs values (4, 1003, 1, 'intermediate_order_facts_d', '', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_jobs values (5, 1003, 1, 'tag_mbr_frequenttime_d', '', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_jobs values (6, 1003, 1, 'tag_mbr_firstbuy_d', '', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_jobs values (7, 1003, 1, 'tag_mbr_province_d', '', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_jobs values (8, 1003, 1, 'temp_refundproducts', '', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_jobs values (9, 1003, 1, 'intermediate_order_items_facts_d', '', 1, '2020-01-01 00:00:00.000', 0);
+insert into m_jobs values (10, 1003, 1, 'tag_purchase_item_particles_d', '', 1, '2020-01-01 00:00:00.000', 0);
 
 delete from m_job_dependencies;
 
