@@ -10,7 +10,7 @@ function showDataSourceDetail(e) {
 window.addEventListener("load", function() {
     ajax('POST', '/api/system/data-sources', {}, function(res) {
         res.forEach(function(item) {
-            tr($("data-source-table"), item, [ item.driver, item.name, item.cn_name, item.remarks, item.creator_id, item.created_on, "<button onclick='showDataSourceDetail(event)'>详情</button>" ])
+            tr($("data-source-table"), item, [ item.driver, item.name, item.cn_name, item.creator_id > 0 ? "admin" : "", item.created_on, "<button onclick='showDataSourceDetail(event)'>详情</button>" ])
         })
     })
 })

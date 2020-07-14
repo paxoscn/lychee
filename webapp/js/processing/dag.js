@@ -67,6 +67,7 @@ function renderJob(job) {
     $("svg").appendChild(foreignObject)
 
     var node = document.createElement("DIV")
+    node.className = "node"
 
     var nodeColor
     if (typeof job.state == "undefined") {

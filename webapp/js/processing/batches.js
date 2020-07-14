@@ -10,7 +10,7 @@ function showBatchDetail(e) {
 window.addEventListener("load", function() {
     ajax('POST', '/api/processing/batches', {}, function(res) {
         res.forEach(function(item) {
-            tr($("batch-table"), item, [ item.is_adhoc, item.business_time, item.state, item.creator_id, item.created_on, "<button onclick='showBatchDetail(event)'>详情</button>" ])
+            tr($("batch-table"), item, [ item.is_adhoc > 0 ? "是" : "否", item.business_time, item.state, item.creator_id > 0 ? "admin" : "", item.created_on, "<button onclick='showBatchDetail(event)'>详情</button>" ])
         })
     })
 })

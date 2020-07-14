@@ -10,7 +10,7 @@ function showMetricsDetail(e) {
 window.addEventListener("load", function() {
     ajax('POST', '/api/modeling/metrics-list', {}, function(res) {
         res.forEach(function(item) {
-            tr($("metrics-table"), item, [ item.name, item.cn_name, item.remarks, item.creator_id, item.created_on, "<button onclick='showMetricsDetail(event)'>详情</button>" ])
+            tr($("metrics-table"), item, [ item.name, item.cn_name, item.creator_id > 0 ? "admin" : "", item.created_on, "<button onclick='showMetricsDetail(event)'>详情</button>" ])
         })
     })
 })

@@ -731,3 +731,7 @@ delete from m_job_instances;
 
 insert into m_job_instances values (1, 1, 2, '2020-01-01 00:00:00.000', 'successful', 1, '2020-01-01 00:00:00.000', 0);
 insert into m_job_instances values (2, 1, 3, '2020-01-01 00:00:00.000', 'failed', 1, '2020-01-01 00:00:00.000', 0);
+
+delete from m_migrations;
+
+insert into m_migrations values (1, 1003, 0, 1, '2020-01-01 00:00:00.000');

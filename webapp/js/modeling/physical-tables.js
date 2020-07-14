@@ -18,7 +18,7 @@ function parsePhysicalTables() {
 window.addEventListener("load", function() {
     ajax('POST', '/api/modeling/physical-tables', {}, function(res) {
         res.forEach(function(item) {
-            tr($("physical-table-table"), item, [ item.logical_table_name, item.data_source_name, item.name, item.remarks, item.creator_id, item.created_on, "<button onclick='showPhysicalTableDetail(event)'>详情</button>" ])
+            tr($("physical-table-table"), item, [ item.logical_table_name, item.data_source_name, item.name, item.creator_id > 0 ? "admin" : "", item.created_on, "<button onclick='showPhysicalTableDetail(event)'>详情</button>" ])
         })
     })
 })

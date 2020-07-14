@@ -14,7 +14,7 @@ function queryList() {
     ajax('POST', '/api/modeling/logical-tables', { "layer": layer, "role": role }, function(res) {
         tclean($("logical-table-table"));
         res.forEach(function(item) {
-            tr($("logical-table-table"), item, [ item.layer, item.name, item.cn_name, item.remarks, item.has_oneid, item.is_fact == 1 ? "事实表" : "维度表", item.creator_id, item.created_on, "<button onclick='showLogicalTableDetail(event)'>详情</button>" ])
+            tr($("logical-table-table"), item, [ item.layer, item.name, item.cn_name, item.has_oneid > 0 ? "是" : "否", item.is_fact == 1 ? "事实表" : "维度表", item.creator_id > 0 ? "admin" : "", item.created_on, "<button onclick='showLogicalTableDetail(event)'>详情</button>" ])
         })
     })
 }
