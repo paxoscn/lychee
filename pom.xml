@@ -13,7 +13,7 @@
         <java.source.version>1.8</java.source.version>
         <jetty.version>9.4.30.v20200611</jetty.version>
         <jjwt.version>0.9.0</jjwt.version>
-        <logback.version>1.1.7</logback.version>
+        <logback.version>1.2.0</logback.version>
         <slf4j.version>1.7.21</slf4j.version>
     </properties>
     <dependencies>
